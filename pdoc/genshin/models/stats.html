@@ -1,0 +1,826 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2.dev21+g6d35cca" />
+<title>genshin.models.stats API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>genshin.models.stats</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from __future__ import annotations
+
+import re
+from typing import Any, Dict, List, Optional, Union
+
+from pydantic import Field, validator
+
+from .abyss import SpiralAbyssPair
+from .activities import Activities
+from .base import GenshinModel, PartialCharacter
+from .character import Character
+
+__all__ = [
+    &#34;Stats&#34;,
+    &#34;Offering&#34;,
+    &#34;Exploration&#34;,
+    &#34;TeapotRealm&#34;,
+    &#34;Teapot&#34;,
+    &#34;PartialUserStats&#34;,
+    &#34;UserStats&#34;,
+    &#34;FullUserStats&#34;,
+]
+
+# flake8: noqa: E222
+class Stats(GenshinModel):
+    &#34;&#34;&#34;Overall user stats&#34;&#34;&#34;
+
+    # This is such fucking bullshit, just why?
+    # fmt: off
+    achievements: int =       Field(galias=&#34;achievement_number&#34;,     mi18n=&#34;bbs/achievement_complete_count&#34;)
+    days_active: int =        Field(galias=&#34;active_day_number&#34;,      mi18n=&#34;bbs/active_day&#34;)
+    characters: int =         Field(galias=&#34;avatar_number&#34;,          mi18n=&#34;bbs/other_people_character&#34;)
+    spiral_abyss: str =       Field(galias=&#34;spiral_abyss&#34;,           mi18n=&#34;bbs/unlock_portal&#34;)
+    anemoculi: int =          Field(galias=&#34;anemoculus_number&#34;,      mi18n=&#34;bbs/wind_god&#34;)
+    geoculi: int =            Field(galias=&#34;geoculus_number&#34;,        mi18n=&#34;bbs/rock_god&#34;)
+    electroculi: int =        Field(galias=&#34;electroculus_number&#34;,    mi18n=&#34;bbs/electroculus_god&#34;)
+    common_chests: int =      Field(galias=&#34;common_chest_number&#34;,    mi18n=&#34;bbs/general_treasure_box_count&#34;)
+    exquisite_chests: int =   Field(galias=&#34;exquisite_chest_number&#34;, mi18n=&#34;bbs/delicacy_treasure_box_count&#34;)
+    precious_chests: int =    Field(galias=&#34;precious_chest_number&#34;,  mi18n=&#34;bbs/rarity_treasure_box_count&#34;)
+    luxurious_chests: int =   Field(galias=&#34;luxurious_chest_number&#34;, mi18n=&#34;bbs/magnificent_treasure_box_count&#34;)
+    remarkable_chests: int =  Field(galias=&#34;magic_chest_number&#34;,     mi18n=&#34;bbs/magic_chest_number&#34;)
+    unlocked_waypoints: int = Field(galias=&#34;way_point_number&#34;,       mi18n=&#34;bbs/unlock_portal&#34;)
+    unlocked_domains: int =   Field(galias=&#34;domain_number&#34;,          mi18n=&#34;bbs/unlock_secret_area&#34;)
+    # fmt: on
+
+    def as_dict(self, lang: str = &#34;en-us&#34;) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;Helper function which turns fields into properly named ones&#34;&#34;&#34;
+        return {
+            self._get_mi18n(field, lang): getattr(self, field.name)
+            for field in self.__fields__.values()
+        }
+
+
+class Offering(GenshinModel):
+    &#34;&#34;&#34;An offering&#34;&#34;&#34;
+
+    name: str
+    level: int
+
+
+class Exploration(GenshinModel):
+    &#34;&#34;&#34;Exploration data&#34;&#34;&#34;
+
+    id: int
+    icon: str
+    name: str
+    type: str
+    level: int
+    explored: int = Field(galias=&#34;exploration_percentage&#34;)
+    offerings: List[Offering]
+
+    @property
+    def percentage(self) -&gt; float:
+        &#34;&#34;&#34;The percentage explored&#34;&#34;&#34;
+        return self.explored / 10
+
+
+class TeapotRealm(GenshinModel):
+    &#34;&#34;&#34;A specific teapot realm&#34;&#34;&#34;
+
+    name: str
+    icon: str
+
+    @property
+    def id(self) -&gt; int:
+        match = re.search(r&#34;\d&#34;, self.icon)
+        return int(match.group()) if match else 0
+
+
+class Teapot(GenshinModel):
+    &#34;&#34;&#34;User&#39;s Serenitea Teapot&#34;&#34;&#34;
+
+    realms: List[TeapotRealm]
+    level: int
+    visitors: int = Field(galias=&#34;visit_num&#34;)
+    comfort: int = Field(galias=&#34;comfort_num&#34;)
+    items: int = Field(galias=&#34;item_num&#34;)
+    comfort_name: str = Field(galias=&#34;comfort_level_name&#34;)
+    comfort_icon: str = Field(galias=&#34;comfort_level_icon&#34;)
+
+
+class PartialUserStats(GenshinModel):
+    &#34;&#34;&#34;User stats with characters without equipment&#34;&#34;&#34;
+
+    stats: Stats
+    characters: List[PartialCharacter] = Field(galias=&#34;avatars&#34;)
+    explorations: List[Exploration] = Field(galias=&#34;world_explorations&#34;)
+    teapot: Optional[Teapot] = Field(galias=&#34;homes&#34;)
+
+    @validator(&#34;teapot&#34;, pre=True)
+    def __format_teapot(cls, v: Any) -&gt; Optional[Dict[str, Any]]:
+        if not v:
+            return None
+        if isinstance(v, dict):
+            return v
+        return {**v[0], &#34;realms&#34;: v}
+
+
+class UserStats(PartialUserStats):
+    &#34;&#34;&#34;User stats with characters with equipment&#34;&#34;&#34;
+
+    characters: List[Character] = Field(galias=&#34;avatars&#34;)
+
+
+class FullUserStats(UserStats):
+    &#34;&#34;&#34;User stats with all data a user can have&#34;&#34;&#34;
+
+    abyss: SpiralAbyssPair
+    activities: Activities</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="genshin.models.stats.Exploration"><code class="flex name class">
+<span>class <span class="ident">Exploration</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exploration data</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Exploration(GenshinModel):
+    &#34;&#34;&#34;Exploration data&#34;&#34;&#34;
+
+    id: int
+    icon: str
+    name: str
+    type: str
+    level: int
+    explored: int = Field(galias=&#34;exploration_percentage&#34;)
+    offerings: List[Offering]
+
+    @property
+    def percentage(self) -&gt; float:
+        &#34;&#34;&#34;The percentage explored&#34;&#34;&#34;
+        return self.explored / 10</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="genshin.models.base.GenshinModel" href="base.html#genshin.models.base.GenshinModel">GenshinModel</a></li>
+<li>pydantic.main.BaseModel</li>
+<li>pydantic.utils.Representation</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="genshin.models.stats.Exploration.explored"><code class="name">var <span class="ident">explored</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.stats.Exploration.icon"><code class="name">var <span class="ident">icon</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.stats.Exploration.id"><code class="name">var <span class="ident">id</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.stats.Exploration.level"><code class="name">var <span class="ident">level</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.stats.Exploration.name"><code class="name">var <span class="ident">name</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.stats.Exploration.offerings"><code class="name">var <span class="ident">offerings</span> : List[<a title="genshin.models.stats.Offering" href="#genshin.models.stats.Offering">Offering</a>]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.stats.Exploration.type"><code class="name">var <span class="ident">type</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="genshin.models.stats.Exploration.percentage"><code class="name">var <span class="ident">percentage</span> : float</code></dt>
+<dd>
+<div class="desc"><p>The percentage explored</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def percentage(self) -&gt; float:
+    &#34;&#34;&#34;The percentage explored&#34;&#34;&#34;
+    return self.explored / 10</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="genshin.models.base.GenshinModel" href="base.html#genshin.models.base.GenshinModel">GenshinModel</a></b></code>:
+<ul class="hlist">
+<li><code><a title="genshin.models.base.GenshinModel.dict" href="base.html#genshin.models.base.GenshinModel.dict">dict</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="genshin.models.stats.FullUserStats"><code class="flex name class">
+<span>class <span class="ident">FullUserStats</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>User stats with all data a user can have</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class FullUserStats(UserStats):
+    &#34;&#34;&#34;User stats with all data a user can have&#34;&#34;&#34;
+
+    abyss: SpiralAbyssPair
+    activities: Activities</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="genshin.models.stats.UserStats" href="#genshin.models.stats.UserStats">UserStats</a></li>
+<li><a title="genshin.models.stats.PartialUserStats" href="#genshin.models.stats.PartialUserStats">PartialUserStats</a></li>
+<li><a title="genshin.models.base.GenshinModel" href="base.html#genshin.models.base.GenshinModel">GenshinModel</a></li>
+<li>pydantic.main.BaseModel</li>
+<li>pydantic.utils.Representation</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="genshin.models.stats.FullUserStats.abyss"><code class="name">var <span class="ident">abyss</span> : <a title="genshin.models.abyss.SpiralAbyssPair" href="abyss.html#genshin.models.abyss.SpiralAbyssPair">SpiralAbyssPair</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.stats.FullUserStats.activities"><code class="name">var <span class="ident">activities</span> : <a title="genshin.models.activities.Activities" href="activities.html#genshin.models.activities.Activities">Activities</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="genshin.models.stats.UserStats" href="#genshin.models.stats.UserStats">UserStats</a></b></code>:
+<ul class="hlist">
+<li><code><a title="genshin.models.stats.UserStats.dict" href="base.html#genshin.models.base.GenshinModel.dict">dict</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="genshin.models.stats.Offering"><code class="flex name class">
+<span>class <span class="ident">Offering</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An offering</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Offering(GenshinModel):
+    &#34;&#34;&#34;An offering&#34;&#34;&#34;
+
+    name: str
+    level: int</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="genshin.models.base.GenshinModel" href="base.html#genshin.models.base.GenshinModel">GenshinModel</a></li>
+<li>pydantic.main.BaseModel</li>
+<li>pydantic.utils.Representation</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="genshin.models.stats.Offering.level"><code class="name">var <span class="ident">level</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.stats.Offering.name"><code class="name">var <span class="ident">name</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="genshin.models.base.GenshinModel" href="base.html#genshin.models.base.GenshinModel">GenshinModel</a></b></code>:
+<ul class="hlist">
+<li><code><a title="genshin.models.base.GenshinModel.dict" href="base.html#genshin.models.base.GenshinModel.dict">dict</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="genshin.models.stats.PartialUserStats"><code class="flex name class">
+<span>class <span class="ident">PartialUserStats</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>User stats with characters without equipment</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PartialUserStats(GenshinModel):
+    &#34;&#34;&#34;User stats with characters without equipment&#34;&#34;&#34;
+
+    stats: Stats
+    characters: List[PartialCharacter] = Field(galias=&#34;avatars&#34;)
+    explorations: List[Exploration] = Field(galias=&#34;world_explorations&#34;)
+    teapot: Optional[Teapot] = Field(galias=&#34;homes&#34;)
+
+    @validator(&#34;teapot&#34;, pre=True)
+    def __format_teapot(cls, v: Any) -&gt; Optional[Dict[str, Any]]:
+        if not v:
+            return None
+        if isinstance(v, dict):
+            return v
+        return {**v[0], &#34;realms&#34;: v}</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="genshin.models.base.GenshinModel" href="base.html#genshin.models.base.GenshinModel">GenshinModel</a></li>
+<li>pydantic.main.BaseModel</li>
+<li>pydantic.utils.Representation</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="genshin.models.stats.UserStats" href="#genshin.models.stats.UserStats">UserStats</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="genshin.models.stats.PartialUserStats.characters"><code class="name">var <span class="ident">characters</span> : List[<a title="genshin.models.base.PartialCharacter" href="base.html#genshin.models.base.PartialCharacter">PartialCharacter</a>]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.stats.PartialUserStats.explorations"><code class="name">var <span class="ident">explorations</span> : List[<a title="genshin.models.stats.Exploration" href="#genshin.models.stats.Exploration">Exploration</a>]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.stats.PartialUserStats.stats"><code class="name">var <span class="ident">stats</span> : <a title="genshin.models.stats.Stats" href="#genshin.models.stats.Stats">Stats</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.stats.PartialUserStats.teapot"><code class="name">var <span class="ident">teapot</span> : Optional[<a title="genshin.models.stats.Teapot" href="#genshin.models.stats.Teapot">Teapot</a>]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="genshin.models.base.GenshinModel" href="base.html#genshin.models.base.GenshinModel">GenshinModel</a></b></code>:
+<ul class="hlist">
+<li><code><a title="genshin.models.base.GenshinModel.dict" href="base.html#genshin.models.base.GenshinModel.dict">dict</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="genshin.models.stats.Stats"><code class="flex name class">
+<span>class <span class="ident">Stats</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Overall user stats</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Stats(GenshinModel):
+    &#34;&#34;&#34;Overall user stats&#34;&#34;&#34;
+
+    # This is such fucking bullshit, just why?
+    # fmt: off
+    achievements: int =       Field(galias=&#34;achievement_number&#34;,     mi18n=&#34;bbs/achievement_complete_count&#34;)
+    days_active: int =        Field(galias=&#34;active_day_number&#34;,      mi18n=&#34;bbs/active_day&#34;)
+    characters: int =         Field(galias=&#34;avatar_number&#34;,          mi18n=&#34;bbs/other_people_character&#34;)
+    spiral_abyss: str =       Field(galias=&#34;spiral_abyss&#34;,           mi18n=&#34;bbs/unlock_portal&#34;)
+    anemoculi: int =          Field(galias=&#34;anemoculus_number&#34;,      mi18n=&#34;bbs/wind_god&#34;)
+    geoculi: int =            Field(galias=&#34;geoculus_number&#34;,        mi18n=&#34;bbs/rock_god&#34;)
+    electroculi: int =        Field(galias=&#34;electroculus_number&#34;,    mi18n=&#34;bbs/electroculus_god&#34;)
+    common_chests: int =      Field(galias=&#34;common_chest_number&#34;,    mi18n=&#34;bbs/general_treasure_box_count&#34;)
+    exquisite_chests: int =   Field(galias=&#34;exquisite_chest_number&#34;, mi18n=&#34;bbs/delicacy_treasure_box_count&#34;)
+    precious_chests: int =    Field(galias=&#34;precious_chest_number&#34;,  mi18n=&#34;bbs/rarity_treasure_box_count&#34;)
+    luxurious_chests: int =   Field(galias=&#34;luxurious_chest_number&#34;, mi18n=&#34;bbs/magnificent_treasure_box_count&#34;)
+    remarkable_chests: int =  Field(galias=&#34;magic_chest_number&#34;,     mi18n=&#34;bbs/magic_chest_number&#34;)
+    unlocked_waypoints: int = Field(galias=&#34;way_point_number&#34;,       mi18n=&#34;bbs/unlock_portal&#34;)
+    unlocked_domains: int =   Field(galias=&#34;domain_number&#34;,          mi18n=&#34;bbs/unlock_secret_area&#34;)
+    # fmt: on
+
+    def as_dict(self, lang: str = &#34;en-us&#34;) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;Helper function which turns fields into properly named ones&#34;&#34;&#34;
+        return {
+            self._get_mi18n(field, lang): getattr(self, field.name)
+            for field in self.__fields__.values()
+        }</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="genshin.models.base.GenshinModel" href="base.html#genshin.models.base.GenshinModel">GenshinModel</a></li>
+<li>pydantic.main.BaseModel</li>
+<li>pydantic.utils.Representation</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="genshin.models.stats.Stats.achievements"><code class="name">var <span class="ident">achievements</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.stats.Stats.anemoculi"><code class="name">var <span class="ident">anemoculi</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.stats.Stats.characters"><code class="name">var <span class="ident">characters</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.stats.Stats.common_chests"><code class="name">var <span class="ident">common_chests</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.stats.Stats.days_active"><code class="name">var <span class="ident">days_active</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.stats.Stats.electroculi"><code class="name">var <span class="ident">electroculi</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.stats.Stats.exquisite_chests"><code class="name">var <span class="ident">exquisite_chests</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.stats.Stats.geoculi"><code class="name">var <span class="ident">geoculi</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.stats.Stats.luxurious_chests"><code class="name">var <span class="ident">luxurious_chests</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.stats.Stats.precious_chests"><code class="name">var <span class="ident">precious_chests</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.stats.Stats.remarkable_chests"><code class="name">var <span class="ident">remarkable_chests</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.stats.Stats.spiral_abyss"><code class="name">var <span class="ident">spiral_abyss</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.stats.Stats.unlocked_domains"><code class="name">var <span class="ident">unlocked_domains</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.stats.Stats.unlocked_waypoints"><code class="name">var <span class="ident">unlocked_waypoints</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="genshin.models.stats.Stats.as_dict"><code class="name flex">
+<span>def <span class="ident">as_dict</span></span>(<span>self, lang: str = 'en-us') ‑> Dict[str, Any]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Helper function which turns fields into properly named ones</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def as_dict(self, lang: str = &#34;en-us&#34;) -&gt; Dict[str, Any]:
+    &#34;&#34;&#34;Helper function which turns fields into properly named ones&#34;&#34;&#34;
+    return {
+        self._get_mi18n(field, lang): getattr(self, field.name)
+        for field in self.__fields__.values()
+    }</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="genshin.models.base.GenshinModel" href="base.html#genshin.models.base.GenshinModel">GenshinModel</a></b></code>:
+<ul class="hlist">
+<li><code><a title="genshin.models.base.GenshinModel.dict" href="base.html#genshin.models.base.GenshinModel.dict">dict</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="genshin.models.stats.Teapot"><code class="flex name class">
+<span>class <span class="ident">Teapot</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>User's Serenitea Teapot</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Teapot(GenshinModel):
+    &#34;&#34;&#34;User&#39;s Serenitea Teapot&#34;&#34;&#34;
+
+    realms: List[TeapotRealm]
+    level: int
+    visitors: int = Field(galias=&#34;visit_num&#34;)
+    comfort: int = Field(galias=&#34;comfort_num&#34;)
+    items: int = Field(galias=&#34;item_num&#34;)
+    comfort_name: str = Field(galias=&#34;comfort_level_name&#34;)
+    comfort_icon: str = Field(galias=&#34;comfort_level_icon&#34;)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="genshin.models.base.GenshinModel" href="base.html#genshin.models.base.GenshinModel">GenshinModel</a></li>
+<li>pydantic.main.BaseModel</li>
+<li>pydantic.utils.Representation</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="genshin.models.stats.Teapot.comfort"><code class="name">var <span class="ident">comfort</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.stats.Teapot.comfort_icon"><code class="name">var <span class="ident">comfort_icon</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.stats.Teapot.comfort_name"><code class="name">var <span class="ident">comfort_name</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.stats.Teapot.items"><code class="name">var <span class="ident">items</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.stats.Teapot.level"><code class="name">var <span class="ident">level</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.stats.Teapot.realms"><code class="name">var <span class="ident">realms</span> : List[<a title="genshin.models.stats.TeapotRealm" href="#genshin.models.stats.TeapotRealm">TeapotRealm</a>]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.stats.Teapot.visitors"><code class="name">var <span class="ident">visitors</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="genshin.models.base.GenshinModel" href="base.html#genshin.models.base.GenshinModel">GenshinModel</a></b></code>:
+<ul class="hlist">
+<li><code><a title="genshin.models.base.GenshinModel.dict" href="base.html#genshin.models.base.GenshinModel.dict">dict</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="genshin.models.stats.TeapotRealm"><code class="flex name class">
+<span>class <span class="ident">TeapotRealm</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A specific teapot realm</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TeapotRealm(GenshinModel):
+    &#34;&#34;&#34;A specific teapot realm&#34;&#34;&#34;
+
+    name: str
+    icon: str
+
+    @property
+    def id(self) -&gt; int:
+        match = re.search(r&#34;\d&#34;, self.icon)
+        return int(match.group()) if match else 0</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="genshin.models.base.GenshinModel" href="base.html#genshin.models.base.GenshinModel">GenshinModel</a></li>
+<li>pydantic.main.BaseModel</li>
+<li>pydantic.utils.Representation</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="genshin.models.stats.TeapotRealm.icon"><code class="name">var <span class="ident">icon</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.stats.TeapotRealm.name"><code class="name">var <span class="ident">name</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="genshin.models.stats.TeapotRealm.id"><code class="name">var <span class="ident">id</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def id(self) -&gt; int:
+    match = re.search(r&#34;\d&#34;, self.icon)
+    return int(match.group()) if match else 0</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="genshin.models.base.GenshinModel" href="base.html#genshin.models.base.GenshinModel">GenshinModel</a></b></code>:
+<ul class="hlist">
+<li><code><a title="genshin.models.base.GenshinModel.dict" href="base.html#genshin.models.base.GenshinModel.dict">dict</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="genshin.models.stats.UserStats"><code class="flex name class">
+<span>class <span class="ident">UserStats</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>User stats with characters with equipment</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class UserStats(PartialUserStats):
+    &#34;&#34;&#34;User stats with characters with equipment&#34;&#34;&#34;
+
+    characters: List[Character] = Field(galias=&#34;avatars&#34;)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="genshin.models.stats.PartialUserStats" href="#genshin.models.stats.PartialUserStats">PartialUserStats</a></li>
+<li><a title="genshin.models.base.GenshinModel" href="base.html#genshin.models.base.GenshinModel">GenshinModel</a></li>
+<li>pydantic.main.BaseModel</li>
+<li>pydantic.utils.Representation</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="genshin.models.stats.FullUserStats" href="#genshin.models.stats.FullUserStats">FullUserStats</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="genshin.models.stats.UserStats.characters"><code class="name">var <span class="ident">characters</span> : List[<a title="genshin.models.character.Character" href="character.html#genshin.models.character.Character">Character</a>]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="genshin.models.stats.PartialUserStats" href="#genshin.models.stats.PartialUserStats">PartialUserStats</a></b></code>:
+<ul class="hlist">
+<li><code><a title="genshin.models.stats.PartialUserStats.dict" href="base.html#genshin.models.base.GenshinModel.dict">dict</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="genshin.models" href="index.html">genshin.models</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="genshin.models.stats.Exploration" href="#genshin.models.stats.Exploration">Exploration</a></code></h4>
+<ul class="two-column">
+<li><code><a title="genshin.models.stats.Exploration.explored" href="#genshin.models.stats.Exploration.explored">explored</a></code></li>
+<li><code><a title="genshin.models.stats.Exploration.icon" href="#genshin.models.stats.Exploration.icon">icon</a></code></li>
+<li><code><a title="genshin.models.stats.Exploration.id" href="#genshin.models.stats.Exploration.id">id</a></code></li>
+<li><code><a title="genshin.models.stats.Exploration.level" href="#genshin.models.stats.Exploration.level">level</a></code></li>
+<li><code><a title="genshin.models.stats.Exploration.name" href="#genshin.models.stats.Exploration.name">name</a></code></li>
+<li><code><a title="genshin.models.stats.Exploration.offerings" href="#genshin.models.stats.Exploration.offerings">offerings</a></code></li>
+<li><code><a title="genshin.models.stats.Exploration.percentage" href="#genshin.models.stats.Exploration.percentage">percentage</a></code></li>
+<li><code><a title="genshin.models.stats.Exploration.type" href="#genshin.models.stats.Exploration.type">type</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="genshin.models.stats.FullUserStats" href="#genshin.models.stats.FullUserStats">FullUserStats</a></code></h4>
+<ul class="">
+<li><code><a title="genshin.models.stats.FullUserStats.abyss" href="#genshin.models.stats.FullUserStats.abyss">abyss</a></code></li>
+<li><code><a title="genshin.models.stats.FullUserStats.activities" href="#genshin.models.stats.FullUserStats.activities">activities</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="genshin.models.stats.Offering" href="#genshin.models.stats.Offering">Offering</a></code></h4>
+<ul class="">
+<li><code><a title="genshin.models.stats.Offering.level" href="#genshin.models.stats.Offering.level">level</a></code></li>
+<li><code><a title="genshin.models.stats.Offering.name" href="#genshin.models.stats.Offering.name">name</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="genshin.models.stats.PartialUserStats" href="#genshin.models.stats.PartialUserStats">PartialUserStats</a></code></h4>
+<ul class="">
+<li><code><a title="genshin.models.stats.PartialUserStats.characters" href="#genshin.models.stats.PartialUserStats.characters">characters</a></code></li>
+<li><code><a title="genshin.models.stats.PartialUserStats.explorations" href="#genshin.models.stats.PartialUserStats.explorations">explorations</a></code></li>
+<li><code><a title="genshin.models.stats.PartialUserStats.stats" href="#genshin.models.stats.PartialUserStats.stats">stats</a></code></li>
+<li><code><a title="genshin.models.stats.PartialUserStats.teapot" href="#genshin.models.stats.PartialUserStats.teapot">teapot</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="genshin.models.stats.Stats" href="#genshin.models.stats.Stats">Stats</a></code></h4>
+<ul class="two-column">
+<li><code><a title="genshin.models.stats.Stats.achievements" href="#genshin.models.stats.Stats.achievements">achievements</a></code></li>
+<li><code><a title="genshin.models.stats.Stats.anemoculi" href="#genshin.models.stats.Stats.anemoculi">anemoculi</a></code></li>
+<li><code><a title="genshin.models.stats.Stats.as_dict" href="#genshin.models.stats.Stats.as_dict">as_dict</a></code></li>
+<li><code><a title="genshin.models.stats.Stats.characters" href="#genshin.models.stats.Stats.characters">characters</a></code></li>
+<li><code><a title="genshin.models.stats.Stats.common_chests" href="#genshin.models.stats.Stats.common_chests">common_chests</a></code></li>
+<li><code><a title="genshin.models.stats.Stats.days_active" href="#genshin.models.stats.Stats.days_active">days_active</a></code></li>
+<li><code><a title="genshin.models.stats.Stats.electroculi" href="#genshin.models.stats.Stats.electroculi">electroculi</a></code></li>
+<li><code><a title="genshin.models.stats.Stats.exquisite_chests" href="#genshin.models.stats.Stats.exquisite_chests">exquisite_chests</a></code></li>
+<li><code><a title="genshin.models.stats.Stats.geoculi" href="#genshin.models.stats.Stats.geoculi">geoculi</a></code></li>
+<li><code><a title="genshin.models.stats.Stats.luxurious_chests" href="#genshin.models.stats.Stats.luxurious_chests">luxurious_chests</a></code></li>
+<li><code><a title="genshin.models.stats.Stats.precious_chests" href="#genshin.models.stats.Stats.precious_chests">precious_chests</a></code></li>
+<li><code><a title="genshin.models.stats.Stats.remarkable_chests" href="#genshin.models.stats.Stats.remarkable_chests">remarkable_chests</a></code></li>
+<li><code><a title="genshin.models.stats.Stats.spiral_abyss" href="#genshin.models.stats.Stats.spiral_abyss">spiral_abyss</a></code></li>
+<li><code><a title="genshin.models.stats.Stats.unlocked_domains" href="#genshin.models.stats.Stats.unlocked_domains">unlocked_domains</a></code></li>
+<li><code><a title="genshin.models.stats.Stats.unlocked_waypoints" href="#genshin.models.stats.Stats.unlocked_waypoints">unlocked_waypoints</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="genshin.models.stats.Teapot" href="#genshin.models.stats.Teapot">Teapot</a></code></h4>
+<ul class="two-column">
+<li><code><a title="genshin.models.stats.Teapot.comfort" href="#genshin.models.stats.Teapot.comfort">comfort</a></code></li>
+<li><code><a title="genshin.models.stats.Teapot.comfort_icon" href="#genshin.models.stats.Teapot.comfort_icon">comfort_icon</a></code></li>
+<li><code><a title="genshin.models.stats.Teapot.comfort_name" href="#genshin.models.stats.Teapot.comfort_name">comfort_name</a></code></li>
+<li><code><a title="genshin.models.stats.Teapot.items" href="#genshin.models.stats.Teapot.items">items</a></code></li>
+<li><code><a title="genshin.models.stats.Teapot.level" href="#genshin.models.stats.Teapot.level">level</a></code></li>
+<li><code><a title="genshin.models.stats.Teapot.realms" href="#genshin.models.stats.Teapot.realms">realms</a></code></li>
+<li><code><a title="genshin.models.stats.Teapot.visitors" href="#genshin.models.stats.Teapot.visitors">visitors</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="genshin.models.stats.TeapotRealm" href="#genshin.models.stats.TeapotRealm">TeapotRealm</a></code></h4>
+<ul class="">
+<li><code><a title="genshin.models.stats.TeapotRealm.icon" href="#genshin.models.stats.TeapotRealm.icon">icon</a></code></li>
+<li><code><a title="genshin.models.stats.TeapotRealm.id" href="#genshin.models.stats.TeapotRealm.id">id</a></code></li>
+<li><code><a title="genshin.models.stats.TeapotRealm.name" href="#genshin.models.stats.TeapotRealm.name">name</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="genshin.models.stats.UserStats" href="#genshin.models.stats.UserStats">UserStats</a></code></h4>
+<ul class="">
+<li><code><a title="genshin.models.stats.UserStats.characters" href="#genshin.models.stats.UserStats.characters">characters</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2.dev21+g6d35cca</a>.</p>
+</footer>
+</body>
+</html>

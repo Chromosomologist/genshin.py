@@ -1,0 +1,935 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2.dev21+g6d35cca" />
+<title>genshin.models.base API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>genshin.models.base</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from __future__ import annotations
+
+import abc
+import re
+import warnings
+from datetime import datetime, timedelta, timezone
+from typing import TYPE_CHECKING, Any, ClassVar, Dict, Union
+
+from pydantic import BaseModel, Field, root_validator
+from pydantic.fields import ModelField
+
+from ..constants import CHARACTER_NAMES, DBChar
+
+__all__ = [
+    &#34;GenshinModel&#34;,
+    &#34;Unique&#34;,
+    &#34;CharacterIcon&#34;,
+    &#34;BaseCharacter&#34;,
+    &#34;PartialCharacter&#34;,
+]
+
+
+class GenshinModel(BaseModel, abc.ABC):
+    &#34;&#34;&#34;A genshin model&#34;&#34;&#34;
+
+    # nasty pydantic bug fixed only on the master branch - waiting for pypi release
+    if TYPE_CHECKING:
+        _mi18n_urls: ClassVar[Dict[str, str]]
+        _mi18n: ClassVar[Dict[str, Dict[str, str]]]
+    else:
+        _mi18n_urls = {
+            &#34;bbs&#34;: &#34;https://webstatic-sea.mihoyo.com/admin/mi18n/bbs_cn/m11241040191111/m11241040191111-{lang}.json&#34;,
+        }
+        _mi18n = {}
+
+    def __init__(self, **data: Any) -&gt; None:
+        &#34;&#34;&#34;&#34;&#34;&#34;
+        # clear the docstring for pdoc
+        super().__init__(**data)
+
+    @root_validator(pre=True)
+    def __parse_galias(cls, values: Dict[str, Any]) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;Due to alias being reserved for actual aliases we use a custom alias&#34;&#34;&#34;
+        aliases = {}
+        for name, field in cls.__fields__.items():
+            alias = field.field_info.extra.get(&#34;galias&#34;)
+            if alias is not None:
+                aliases[alias] = name
+
+        return {aliases.get(name, name): value for name, value in values.items()}
+
+    @root_validator()
+    def __parse_timezones(cls, values: Dict[str, Any]) -&gt; Dict[str, Any]:
+        for name, field in cls.__fields__.items():
+            if isinstance(values.get(name), datetime) and values[name].tzinfo is None:
+                offset = field.field_info.extra.get(&#34;timezone&#34;, 0)
+                tzinfo = timezone(timedelta(hours=offset))
+                values[name] = values[name].replace(tzinfo=tzinfo)
+
+        return values
+
+    def dict(self, **kwargs: Any) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;Generate a dictionary representation of the model,
+        optionally specifying which fields to include or exclude.
+
+        Takes the liberty of also giving properties as fields.
+        &#34;&#34;&#34;
+        for name in dir(type(self)):
+            clsvalue = getattr(type(self), name)
+            if isinstance(clsvalue, property):
+                try:
+                    value = getattr(self, name)
+                except:
+                    continue
+
+                if value == &#34;&#34;:
+                    continue
+
+                self.__dict__[name] = value
+
+        return super().dict(**kwargs)
+
+    def _get_mi18n(self, field: ModelField, lang: str) -&gt; str:
+        key = field.field_info.extra.get(&#34;mi18n&#34;)
+        if key not in self._mi18n:
+            return field.name
+
+        return self._mi18n[key][lang]
+
+    class Config:
+        allow_mutation = False
+
+
+class Unique(abc.ABC):
+    &#34;&#34;&#34;A hashable model with an id&#34;&#34;&#34;
+
+    id: int
+
+    def __int__(self) -&gt; int:
+        return self.id
+
+    def __hash__(self) -&gt; int:
+        return hash(self.id)
+
+
+class CharacterIcon:
+    &#34;&#34;&#34;A character&#39;s icon&#34;&#34;&#34;
+
+    character_name: str
+
+    def __init__(self, icon: Union[str, int]) -&gt; None:
+        if isinstance(icon, int):
+            char = CHARACTER_NAMES.get(icon)
+            if char is None:
+                raise ValueError(f&#34;Invalid character id {icon}&#34;)
+            self.character_name = char.icon_name
+        else:
+            match = re.search(r&#34;UI_AvatarIcon(?:_Side)?_(.*).png&#34;, icon)
+            self.character_name = icon if match is None else match.group(1)
+
+    def create_icon(self, specifier: str, scale: int = 0) -&gt; str:
+        base = &#34;https://upload-os-bbs.mihoyo.com/game_record/genshin/&#34;
+        return base + f&#34;{specifier}_{self.character_name}{f&#39;@{scale}x&#39; if scale else &#39;&#39;}.png&#34;
+
+    @property
+    def icon(self) -&gt; str:
+        return self.create_icon(&#34;character_icon/UI_AvatarIcon&#34;)
+
+    @property
+    def image(self) -&gt; str:
+        return self.create_icon(&#34;character_image/UI_AvatarIcon&#34;, scale=2)
+
+    @property
+    def side_icon(self) -&gt; str:
+        return self.create_icon(&#34;character_side_icon/UI_AvatarIcon_Side&#34;)
+
+    def __repr__(self) -&gt; str:
+        return f&#34;{type(self).__name__}({self.character_name!r})&#34;
+
+
+class BaseCharacter(GenshinModel, Unique):
+    &#34;&#34;&#34;A Base character model&#34;&#34;&#34;
+
+    id: int
+    name: str
+    element: str
+    rarity: int
+    icon: str
+
+    collab: bool = False
+
+    @root_validator(pre=True)
+    def __autocomplete(cls, values: Dict[str, Any]) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;Complete missing data&#34;&#34;&#34;
+        partial: bool = False
+
+        id, icon, name = values.get(&#34;id&#34;), values.get(&#34;icon&#34;), values.get(&#34;name&#34;)
+
+        if id and id in CHARACTER_NAMES:
+            char = CHARACTER_NAMES[id]
+
+        elif icon and &#34;genshin&#34; in icon:
+            icon = CharacterIcon(icon)
+            for char in CHARACTER_NAMES.values():
+                if char.icon_name == icon.character_name:
+                    break
+            else:
+                warnings.warn(&#34;Completing data for an unknown character&#34;)
+                name = icon.character_name
+                char = DBChar(0, name, name, &#34;Anemo&#34;, 5)
+
+        elif name:
+            for char in CHARACTER_NAMES.values():
+                if char.name == name:
+                    break
+            else:
+                warnings.warn(&#34;Completing data for a partial character&#34;)
+                partial = True
+                char = DBChar(0, name, name, &#34;Anemo&#34;, 5)
+
+        else:
+            raise ValueError(&#34;Character data incomplete&#34;)
+
+        values[&#34;id&#34;] = values.get(&#34;id&#34;) or char.id
+
+        # malformed icon handling (in calculation)
+        if &#34;genshin&#34; in (values.get(&#34;icon&#34;) or &#34;&#34;):
+            values[&#34;icon&#34;] = CharacterIcon(values[&#34;icon&#34;]).icon
+        elif values.get(&#34;icon&#34;):
+            if not partial:
+                values[&#34;icon&#34;] = CharacterIcon(char.icon_name).icon
+        else:
+            values[&#34;icon&#34;] = CharacterIcon(char.icon_name).icon
+
+        values[&#34;name&#34;] = values.get(&#34;name&#34;) or char.name
+        values[&#34;element&#34;] = values.get(&#34;element&#34;) or char.element
+        values[&#34;rarity&#34;] = values.get(&#34;rarity&#34;) or char.rarity
+
+        if values[&#34;rarity&#34;] &gt; 100:
+            values[&#34;rarity&#34;] -= 100
+            values[&#34;collab&#34;] = True
+        elif values[&#34;id&#34;] == 10000062:
+            # sometimes Alot has 5* like normal, like cmon
+            values[&#34;collab&#34;] = True
+
+        return values
+
+    @property
+    def image(self) -&gt; str:
+        return CharacterIcon(self.icon).image
+
+    @property
+    def side_icon(self) -&gt; str:
+        return CharacterIcon(self.icon).side_icon
+
+    @property
+    def traveler_name(self) -&gt; str:
+        if self.id == 10000005:
+            return &#34;Aether&#34;
+        elif self.id == 10000007:
+            return &#34;Lumine&#34;
+        else:
+            return &#34;&#34;
+
+
+class PartialCharacter(BaseCharacter):
+    &#34;&#34;&#34;A character without any equipment&#34;&#34;&#34;
+
+    level: int
+    friendship: int = Field(galias=&#34;fetter&#34;)
+    constellation: int = Field(galias=&#34;actived_constellation_num&#34;)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="genshin.models.base.BaseCharacter"><code class="flex name class">
+<span>class <span class="ident">BaseCharacter</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A Base character model</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class BaseCharacter(GenshinModel, Unique):
+    &#34;&#34;&#34;A Base character model&#34;&#34;&#34;
+
+    id: int
+    name: str
+    element: str
+    rarity: int
+    icon: str
+
+    collab: bool = False
+
+    @root_validator(pre=True)
+    def __autocomplete(cls, values: Dict[str, Any]) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;Complete missing data&#34;&#34;&#34;
+        partial: bool = False
+
+        id, icon, name = values.get(&#34;id&#34;), values.get(&#34;icon&#34;), values.get(&#34;name&#34;)
+
+        if id and id in CHARACTER_NAMES:
+            char = CHARACTER_NAMES[id]
+
+        elif icon and &#34;genshin&#34; in icon:
+            icon = CharacterIcon(icon)
+            for char in CHARACTER_NAMES.values():
+                if char.icon_name == icon.character_name:
+                    break
+            else:
+                warnings.warn(&#34;Completing data for an unknown character&#34;)
+                name = icon.character_name
+                char = DBChar(0, name, name, &#34;Anemo&#34;, 5)
+
+        elif name:
+            for char in CHARACTER_NAMES.values():
+                if char.name == name:
+                    break
+            else:
+                warnings.warn(&#34;Completing data for a partial character&#34;)
+                partial = True
+                char = DBChar(0, name, name, &#34;Anemo&#34;, 5)
+
+        else:
+            raise ValueError(&#34;Character data incomplete&#34;)
+
+        values[&#34;id&#34;] = values.get(&#34;id&#34;) or char.id
+
+        # malformed icon handling (in calculation)
+        if &#34;genshin&#34; in (values.get(&#34;icon&#34;) or &#34;&#34;):
+            values[&#34;icon&#34;] = CharacterIcon(values[&#34;icon&#34;]).icon
+        elif values.get(&#34;icon&#34;):
+            if not partial:
+                values[&#34;icon&#34;] = CharacterIcon(char.icon_name).icon
+        else:
+            values[&#34;icon&#34;] = CharacterIcon(char.icon_name).icon
+
+        values[&#34;name&#34;] = values.get(&#34;name&#34;) or char.name
+        values[&#34;element&#34;] = values.get(&#34;element&#34;) or char.element
+        values[&#34;rarity&#34;] = values.get(&#34;rarity&#34;) or char.rarity
+
+        if values[&#34;rarity&#34;] &gt; 100:
+            values[&#34;rarity&#34;] -= 100
+            values[&#34;collab&#34;] = True
+        elif values[&#34;id&#34;] == 10000062:
+            # sometimes Alot has 5* like normal, like cmon
+            values[&#34;collab&#34;] = True
+
+        return values
+
+    @property
+    def image(self) -&gt; str:
+        return CharacterIcon(self.icon).image
+
+    @property
+    def side_icon(self) -&gt; str:
+        return CharacterIcon(self.icon).side_icon
+
+    @property
+    def traveler_name(self) -&gt; str:
+        if self.id == 10000005:
+            return &#34;Aether&#34;
+        elif self.id == 10000007:
+            return &#34;Lumine&#34;
+        else:
+            return &#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="genshin.models.base.GenshinModel" href="#genshin.models.base.GenshinModel">GenshinModel</a></li>
+<li>pydantic.main.BaseModel</li>
+<li>pydantic.utils.Representation</li>
+<li><a title="genshin.models.base.Unique" href="#genshin.models.base.Unique">Unique</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="genshin.models.abyss.AbyssCharacter" href="abyss.html#genshin.models.abyss.AbyssCharacter">AbyssCharacter</a></li>
+<li><a title="genshin.models.abyss.AbyssRankCharacter" href="abyss.html#genshin.models.abyss.AbyssRankCharacter">AbyssRankCharacter</a></li>
+<li><a title="genshin.models.activities.HyakuninIkkiCharacter" href="activities.html#genshin.models.activities.HyakuninIkkiCharacter">HyakuninIkkiCharacter</a></li>
+<li><a title="genshin.models.activities.LabyrinthWarriorsCharacter" href="activities.html#genshin.models.activities.LabyrinthWarriorsCharacter">LabyrinthWarriorsCharacter</a></li>
+<li><a title="genshin.models.base.PartialCharacter" href="#genshin.models.base.PartialCharacter">PartialCharacter</a></li>
+<li><a title="genshin.models.calculator.CalculatorCharacter" href="calculator.html#genshin.models.calculator.CalculatorCharacter">CalculatorCharacter</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="genshin.models.base.BaseCharacter.collab"><code class="name">var <span class="ident">collab</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.base.BaseCharacter.element"><code class="name">var <span class="ident">element</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.base.BaseCharacter.icon"><code class="name">var <span class="ident">icon</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.base.BaseCharacter.id"><code class="name">var <span class="ident">id</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.base.BaseCharacter.name"><code class="name">var <span class="ident">name</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.base.BaseCharacter.rarity"><code class="name">var <span class="ident">rarity</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="genshin.models.base.BaseCharacter.image"><code class="name">var <span class="ident">image</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def image(self) -&gt; str:
+    return CharacterIcon(self.icon).image</code></pre>
+</details>
+</dd>
+<dt id="genshin.models.base.BaseCharacter.side_icon"><code class="name">var <span class="ident">side_icon</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def side_icon(self) -&gt; str:
+    return CharacterIcon(self.icon).side_icon</code></pre>
+</details>
+</dd>
+<dt id="genshin.models.base.BaseCharacter.traveler_name"><code class="name">var <span class="ident">traveler_name</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def traveler_name(self) -&gt; str:
+    if self.id == 10000005:
+        return &#34;Aether&#34;
+    elif self.id == 10000007:
+        return &#34;Lumine&#34;
+    else:
+        return &#34;&#34;</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="genshin.models.base.GenshinModel" href="#genshin.models.base.GenshinModel">GenshinModel</a></b></code>:
+<ul class="hlist">
+<li><code><a title="genshin.models.base.GenshinModel.dict" href="#genshin.models.base.GenshinModel.dict">dict</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="genshin.models.base.CharacterIcon"><code class="flex name class">
+<span>class <span class="ident">CharacterIcon</span></span>
+<span>(</span><span>icon: Union[str, int])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A character's icon</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CharacterIcon:
+    &#34;&#34;&#34;A character&#39;s icon&#34;&#34;&#34;
+
+    character_name: str
+
+    def __init__(self, icon: Union[str, int]) -&gt; None:
+        if isinstance(icon, int):
+            char = CHARACTER_NAMES.get(icon)
+            if char is None:
+                raise ValueError(f&#34;Invalid character id {icon}&#34;)
+            self.character_name = char.icon_name
+        else:
+            match = re.search(r&#34;UI_AvatarIcon(?:_Side)?_(.*).png&#34;, icon)
+            self.character_name = icon if match is None else match.group(1)
+
+    def create_icon(self, specifier: str, scale: int = 0) -&gt; str:
+        base = &#34;https://upload-os-bbs.mihoyo.com/game_record/genshin/&#34;
+        return base + f&#34;{specifier}_{self.character_name}{f&#39;@{scale}x&#39; if scale else &#39;&#39;}.png&#34;
+
+    @property
+    def icon(self) -&gt; str:
+        return self.create_icon(&#34;character_icon/UI_AvatarIcon&#34;)
+
+    @property
+    def image(self) -&gt; str:
+        return self.create_icon(&#34;character_image/UI_AvatarIcon&#34;, scale=2)
+
+    @property
+    def side_icon(self) -&gt; str:
+        return self.create_icon(&#34;character_side_icon/UI_AvatarIcon_Side&#34;)
+
+    def __repr__(self) -&gt; str:
+        return f&#34;{type(self).__name__}({self.character_name!r})&#34;</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="genshin.models.base.CharacterIcon.character_name"><code class="name">var <span class="ident">character_name</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="genshin.models.base.CharacterIcon.icon"><code class="name">var <span class="ident">icon</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def icon(self) -&gt; str:
+    return self.create_icon(&#34;character_icon/UI_AvatarIcon&#34;)</code></pre>
+</details>
+</dd>
+<dt id="genshin.models.base.CharacterIcon.image"><code class="name">var <span class="ident">image</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def image(self) -&gt; str:
+    return self.create_icon(&#34;character_image/UI_AvatarIcon&#34;, scale=2)</code></pre>
+</details>
+</dd>
+<dt id="genshin.models.base.CharacterIcon.side_icon"><code class="name">var <span class="ident">side_icon</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def side_icon(self) -&gt; str:
+    return self.create_icon(&#34;character_side_icon/UI_AvatarIcon_Side&#34;)</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="genshin.models.base.CharacterIcon.create_icon"><code class="name flex">
+<span>def <span class="ident">create_icon</span></span>(<span>self, specifier: str, scale: int = 0) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_icon(self, specifier: str, scale: int = 0) -&gt; str:
+    base = &#34;https://upload-os-bbs.mihoyo.com/game_record/genshin/&#34;
+    return base + f&#34;{specifier}_{self.character_name}{f&#39;@{scale}x&#39; if scale else &#39;&#39;}.png&#34;</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="genshin.models.base.GenshinModel"><code class="flex name class">
+<span>class <span class="ident">GenshinModel</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A genshin model</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class GenshinModel(BaseModel, abc.ABC):
+    &#34;&#34;&#34;A genshin model&#34;&#34;&#34;
+
+    # nasty pydantic bug fixed only on the master branch - waiting for pypi release
+    if TYPE_CHECKING:
+        _mi18n_urls: ClassVar[Dict[str, str]]
+        _mi18n: ClassVar[Dict[str, Dict[str, str]]]
+    else:
+        _mi18n_urls = {
+            &#34;bbs&#34;: &#34;https://webstatic-sea.mihoyo.com/admin/mi18n/bbs_cn/m11241040191111/m11241040191111-{lang}.json&#34;,
+        }
+        _mi18n = {}
+
+    def __init__(self, **data: Any) -&gt; None:
+        &#34;&#34;&#34;&#34;&#34;&#34;
+        # clear the docstring for pdoc
+        super().__init__(**data)
+
+    @root_validator(pre=True)
+    def __parse_galias(cls, values: Dict[str, Any]) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;Due to alias being reserved for actual aliases we use a custom alias&#34;&#34;&#34;
+        aliases = {}
+        for name, field in cls.__fields__.items():
+            alias = field.field_info.extra.get(&#34;galias&#34;)
+            if alias is not None:
+                aliases[alias] = name
+
+        return {aliases.get(name, name): value for name, value in values.items()}
+
+    @root_validator()
+    def __parse_timezones(cls, values: Dict[str, Any]) -&gt; Dict[str, Any]:
+        for name, field in cls.__fields__.items():
+            if isinstance(values.get(name), datetime) and values[name].tzinfo is None:
+                offset = field.field_info.extra.get(&#34;timezone&#34;, 0)
+                tzinfo = timezone(timedelta(hours=offset))
+                values[name] = values[name].replace(tzinfo=tzinfo)
+
+        return values
+
+    def dict(self, **kwargs: Any) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;Generate a dictionary representation of the model,
+        optionally specifying which fields to include or exclude.
+
+        Takes the liberty of also giving properties as fields.
+        &#34;&#34;&#34;
+        for name in dir(type(self)):
+            clsvalue = getattr(type(self), name)
+            if isinstance(clsvalue, property):
+                try:
+                    value = getattr(self, name)
+                except:
+                    continue
+
+                if value == &#34;&#34;:
+                    continue
+
+                self.__dict__[name] = value
+
+        return super().dict(**kwargs)
+
+    def _get_mi18n(self, field: ModelField, lang: str) -&gt; str:
+        key = field.field_info.extra.get(&#34;mi18n&#34;)
+        if key not in self._mi18n:
+            return field.name
+
+        return self._mi18n[key][lang]
+
+    class Config:
+        allow_mutation = False</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>pydantic.main.BaseModel</li>
+<li>pydantic.utils.Representation</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="genshin.models.abyss.Battle" href="abyss.html#genshin.models.abyss.Battle">Battle</a></li>
+<li><a title="genshin.models.abyss.Chamber" href="abyss.html#genshin.models.abyss.Chamber">Chamber</a></li>
+<li><a title="genshin.models.abyss.CharacterRanks" href="abyss.html#genshin.models.abyss.CharacterRanks">CharacterRanks</a></li>
+<li><a title="genshin.models.abyss.Floor" href="abyss.html#genshin.models.abyss.Floor">Floor</a></li>
+<li><a title="genshin.models.abyss.SpiralAbyss" href="abyss.html#genshin.models.abyss.SpiralAbyss">SpiralAbyss</a></li>
+<li><a title="genshin.models.abyss.SpiralAbyssPair" href="abyss.html#genshin.models.abyss.SpiralAbyssPair">SpiralAbyssPair</a></li>
+<li><a title="genshin.models.activities.Activities" href="activities.html#genshin.models.activities.Activities">Activities</a></li>
+<li><a title="genshin.models.activities.ChineseActivity" href="activities.html#genshin.models.activities.ChineseActivity">ChineseActivity</a></li>
+<li><a title="genshin.models.activities.HyakuninIkki" href="activities.html#genshin.models.activities.HyakuninIkki">HyakuninIkki</a></li>
+<li><a title="genshin.models.activities.HyakuninIkkiBattle" href="activities.html#genshin.models.activities.HyakuninIkkiBattle">HyakuninIkkiBattle</a></li>
+<li><a title="genshin.models.activities.HyakuninIkkiChallenge" href="activities.html#genshin.models.activities.HyakuninIkkiChallenge">HyakuninIkkiChallenge</a></li>
+<li><a title="genshin.models.activities.HyakuninIkkiSkill" href="activities.html#genshin.models.activities.HyakuninIkkiSkill">HyakuninIkkiSkill</a></li>
+<li><a title="genshin.models.activities.LabyrinthWarriors" href="activities.html#genshin.models.activities.LabyrinthWarriors">LabyrinthWarriors</a></li>
+<li><a title="genshin.models.activities.LabyrinthWarriorsChallenge" href="activities.html#genshin.models.activities.LabyrinthWarriorsChallenge">LabyrinthWarriorsChallenge</a></li>
+<li><a title="genshin.models.activities.LabyrinthWarriorsRune" href="activities.html#genshin.models.activities.LabyrinthWarriorsRune">LabyrinthWarriorsRune</a></li>
+<li><a title="genshin.models.base.BaseCharacter" href="#genshin.models.base.BaseCharacter">BaseCharacter</a></li>
+<li><a title="genshin.models.calculator.CalculatorArtifact" href="calculator.html#genshin.models.calculator.CalculatorArtifact">CalculatorArtifact</a></li>
+<li><a title="genshin.models.calculator.CalculatorArtifactResult" href="calculator.html#genshin.models.calculator.CalculatorArtifactResult">CalculatorArtifactResult</a></li>
+<li><a title="genshin.models.calculator.CalculatorCharacterDetails" href="calculator.html#genshin.models.calculator.CalculatorCharacterDetails">CalculatorCharacterDetails</a></li>
+<li><a title="genshin.models.calculator.CalculatorConsumable" href="calculator.html#genshin.models.calculator.CalculatorConsumable">CalculatorConsumable</a></li>
+<li><a title="genshin.models.calculator.CalculatorResult" href="calculator.html#genshin.models.calculator.CalculatorResult">CalculatorResult</a></li>
+<li><a title="genshin.models.calculator.CalculatorTalent" href="calculator.html#genshin.models.calculator.CalculatorTalent">CalculatorTalent</a></li>
+<li><a title="genshin.models.calculator.CalculatorWeapon" href="calculator.html#genshin.models.calculator.CalculatorWeapon">CalculatorWeapon</a></li>
+<li><a title="genshin.models.character.Artifact" href="character.html#genshin.models.character.Artifact">Artifact</a></li>
+<li><a title="genshin.models.character.ArtifactSet" href="character.html#genshin.models.character.ArtifactSet">ArtifactSet</a></li>
+<li><a title="genshin.models.character.ArtifactSetEffect" href="character.html#genshin.models.character.ArtifactSetEffect">ArtifactSetEffect</a></li>
+<li><a title="genshin.models.character.Constellation" href="character.html#genshin.models.character.Constellation">Constellation</a></li>
+<li><a title="genshin.models.character.Outfit" href="character.html#genshin.models.character.Outfit">Outfit</a></li>
+<li><a title="genshin.models.character.Weapon" href="character.html#genshin.models.character.Weapon">Weapon</a></li>
+<li><a title="genshin.models.daily.ClaimedDailyReward" href="daily.html#genshin.models.daily.ClaimedDailyReward">ClaimedDailyReward</a></li>
+<li><a title="genshin.models.daily.DailyReward" href="daily.html#genshin.models.daily.DailyReward">DailyReward</a></li>
+<li><a title="genshin.models.diary.BaseDiary" href="diary.html#genshin.models.diary.BaseDiary">BaseDiary</a></li>
+<li><a title="genshin.models.diary.DayDiaryData" href="diary.html#genshin.models.diary.DayDiaryData">DayDiaryData</a></li>
+<li><a title="genshin.models.diary.DiaryAction" href="diary.html#genshin.models.diary.DiaryAction">DiaryAction</a></li>
+<li><a title="genshin.models.diary.DiaryActionCategory" href="diary.html#genshin.models.diary.DiaryActionCategory">DiaryActionCategory</a></li>
+<li><a title="genshin.models.diary.DiaryData" href="diary.html#genshin.models.diary.DiaryData">DiaryData</a></li>
+<li><a title="genshin.models.hoyolab.GenshinAccount" href="hoyolab.html#genshin.models.hoyolab.GenshinAccount">GenshinAccount</a></li>
+<li><a title="genshin.models.hoyolab.RecordCardData" href="hoyolab.html#genshin.models.hoyolab.RecordCardData">RecordCardData</a></li>
+<li><a title="genshin.models.hoyolab.RecordCardSetting" href="hoyolab.html#genshin.models.hoyolab.RecordCardSetting">RecordCardSetting</a></li>
+<li><a title="genshin.models.hoyolab.SearchUser" href="hoyolab.html#genshin.models.hoyolab.SearchUser">SearchUser</a></li>
+<li><a title="genshin.models.intermap.MapInfo" href="intermap.html#genshin.models.intermap.MapInfo">MapInfo</a></li>
+<li><a title="genshin.models.intermap.MapInfoDetails" href="intermap.html#genshin.models.intermap.MapInfoDetails">MapInfoDetails</a></li>
+<li><a title="genshin.models.intermap.MapLocation" href="intermap.html#genshin.models.intermap.MapLocation">MapLocation</a></li>
+<li><a title="genshin.models.intermap.MapNode" href="intermap.html#genshin.models.intermap.MapNode">MapNode</a></li>
+<li><a title="genshin.models.intermap.MapPoint" href="intermap.html#genshin.models.intermap.MapPoint">MapPoint</a></li>
+<li><a title="genshin.models.notes.Expedition" href="notes.html#genshin.models.notes.Expedition">Expedition</a></li>
+<li><a title="genshin.models.notes.Notes" href="notes.html#genshin.models.notes.Notes">Notes</a></li>
+<li><a title="genshin.models.stats.Exploration" href="stats.html#genshin.models.stats.Exploration">Exploration</a></li>
+<li><a title="genshin.models.stats.Offering" href="stats.html#genshin.models.stats.Offering">Offering</a></li>
+<li><a title="genshin.models.stats.PartialUserStats" href="stats.html#genshin.models.stats.PartialUserStats">PartialUserStats</a></li>
+<li><a title="genshin.models.stats.Stats" href="stats.html#genshin.models.stats.Stats">Stats</a></li>
+<li><a title="genshin.models.stats.Teapot" href="stats.html#genshin.models.stats.Teapot">Teapot</a></li>
+<li><a title="genshin.models.stats.TeapotRealm" href="stats.html#genshin.models.stats.TeapotRealm">TeapotRealm</a></li>
+<li><a title="genshin.models.transaction.BaseTransaction" href="transaction.html#genshin.models.transaction.BaseTransaction">BaseTransaction</a></li>
+<li><a title="genshin.models.wish.BannerDetailItem" href="wish.html#genshin.models.wish.BannerDetailItem">BannerDetailItem</a></li>
+<li><a title="genshin.models.wish.BannerDetails" href="wish.html#genshin.models.wish.BannerDetails">BannerDetails</a></li>
+<li><a title="genshin.models.wish.BannerDetailsUpItem" href="wish.html#genshin.models.wish.BannerDetailsUpItem">BannerDetailsUpItem</a></li>
+<li><a title="genshin.models.wish.GachaItem" href="wish.html#genshin.models.wish.GachaItem">GachaItem</a></li>
+<li><a title="genshin.models.wish.Wish" href="wish.html#genshin.models.wish.Wish">Wish</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="genshin.models.base.GenshinModel.Config"><code class="name">var <span class="ident">Config</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="genshin.models.base.GenshinModel.dict"><code class="name flex">
+<span>def <span class="ident">dict</span></span>(<span>self, **kwargs: Any) ‑> Dict[str, Any]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Generate a dictionary representation of the model,
+optionally specifying which fields to include or exclude.</p>
+<p>Takes the liberty of also giving properties as fields.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def dict(self, **kwargs: Any) -&gt; Dict[str, Any]:
+    &#34;&#34;&#34;Generate a dictionary representation of the model,
+    optionally specifying which fields to include or exclude.
+
+    Takes the liberty of also giving properties as fields.
+    &#34;&#34;&#34;
+    for name in dir(type(self)):
+        clsvalue = getattr(type(self), name)
+        if isinstance(clsvalue, property):
+            try:
+                value = getattr(self, name)
+            except:
+                continue
+
+            if value == &#34;&#34;:
+                continue
+
+            self.__dict__[name] = value
+
+    return super().dict(**kwargs)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="genshin.models.base.PartialCharacter"><code class="flex name class">
+<span>class <span class="ident">PartialCharacter</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A character without any equipment</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PartialCharacter(BaseCharacter):
+    &#34;&#34;&#34;A character without any equipment&#34;&#34;&#34;
+
+    level: int
+    friendship: int = Field(galias=&#34;fetter&#34;)
+    constellation: int = Field(galias=&#34;actived_constellation_num&#34;)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="genshin.models.base.BaseCharacter" href="#genshin.models.base.BaseCharacter">BaseCharacter</a></li>
+<li><a title="genshin.models.base.GenshinModel" href="#genshin.models.base.GenshinModel">GenshinModel</a></li>
+<li>pydantic.main.BaseModel</li>
+<li>pydantic.utils.Representation</li>
+<li><a title="genshin.models.base.Unique" href="#genshin.models.base.Unique">Unique</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="genshin.models.character.Character" href="character.html#genshin.models.character.Character">Character</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="genshin.models.base.PartialCharacter.constellation"><code class="name">var <span class="ident">constellation</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.base.PartialCharacter.friendship"><code class="name">var <span class="ident">friendship</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.models.base.PartialCharacter.level"><code class="name">var <span class="ident">level</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="genshin.models.base.BaseCharacter" href="#genshin.models.base.BaseCharacter">BaseCharacter</a></b></code>:
+<ul class="hlist">
+<li><code><a title="genshin.models.base.BaseCharacter.dict" href="#genshin.models.base.GenshinModel.dict">dict</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="genshin.models.base.Unique"><code class="flex name class">
+<span>class <span class="ident">Unique</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>A hashable model with an id</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Unique(abc.ABC):
+    &#34;&#34;&#34;A hashable model with an id&#34;&#34;&#34;
+
+    id: int
+
+    def __int__(self) -&gt; int:
+        return self.id
+
+    def __hash__(self) -&gt; int:
+        return hash(self.id)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>abc.ABC</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="genshin.models.base.BaseCharacter" href="#genshin.models.base.BaseCharacter">BaseCharacter</a></li>
+<li><a title="genshin.models.calculator.CalculatorArtifact" href="calculator.html#genshin.models.calculator.CalculatorArtifact">CalculatorArtifact</a></li>
+<li><a title="genshin.models.calculator.CalculatorConsumable" href="calculator.html#genshin.models.calculator.CalculatorConsumable">CalculatorConsumable</a></li>
+<li><a title="genshin.models.calculator.CalculatorTalent" href="calculator.html#genshin.models.calculator.CalculatorTalent">CalculatorTalent</a></li>
+<li><a title="genshin.models.calculator.CalculatorWeapon" href="calculator.html#genshin.models.calculator.CalculatorWeapon">CalculatorWeapon</a></li>
+<li><a title="genshin.models.character.Artifact" href="character.html#genshin.models.character.Artifact">Artifact</a></li>
+<li><a title="genshin.models.character.ArtifactSet" href="character.html#genshin.models.character.ArtifactSet">ArtifactSet</a></li>
+<li><a title="genshin.models.character.Constellation" href="character.html#genshin.models.character.Constellation">Constellation</a></li>
+<li><a title="genshin.models.character.Outfit" href="character.html#genshin.models.character.Outfit">Outfit</a></li>
+<li><a title="genshin.models.character.Weapon" href="character.html#genshin.models.character.Weapon">Weapon</a></li>
+<li><a title="genshin.models.daily.ClaimedDailyReward" href="daily.html#genshin.models.daily.ClaimedDailyReward">ClaimedDailyReward</a></li>
+<li><a title="genshin.models.transaction.BaseTransaction" href="transaction.html#genshin.models.transaction.BaseTransaction">BaseTransaction</a></li>
+<li><a title="genshin.models.wish.GachaItem" href="wish.html#genshin.models.wish.GachaItem">GachaItem</a></li>
+<li><a title="genshin.models.wish.Wish" href="wish.html#genshin.models.wish.Wish">Wish</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="genshin.models.base.Unique.id"><code class="name">var <span class="ident">id</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="genshin.models" href="index.html">genshin.models</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="genshin.models.base.BaseCharacter" href="#genshin.models.base.BaseCharacter">BaseCharacter</a></code></h4>
+<ul class="two-column">
+<li><code><a title="genshin.models.base.BaseCharacter.collab" href="#genshin.models.base.BaseCharacter.collab">collab</a></code></li>
+<li><code><a title="genshin.models.base.BaseCharacter.element" href="#genshin.models.base.BaseCharacter.element">element</a></code></li>
+<li><code><a title="genshin.models.base.BaseCharacter.icon" href="#genshin.models.base.BaseCharacter.icon">icon</a></code></li>
+<li><code><a title="genshin.models.base.BaseCharacter.id" href="#genshin.models.base.BaseCharacter.id">id</a></code></li>
+<li><code><a title="genshin.models.base.BaseCharacter.image" href="#genshin.models.base.BaseCharacter.image">image</a></code></li>
+<li><code><a title="genshin.models.base.BaseCharacter.name" href="#genshin.models.base.BaseCharacter.name">name</a></code></li>
+<li><code><a title="genshin.models.base.BaseCharacter.rarity" href="#genshin.models.base.BaseCharacter.rarity">rarity</a></code></li>
+<li><code><a title="genshin.models.base.BaseCharacter.side_icon" href="#genshin.models.base.BaseCharacter.side_icon">side_icon</a></code></li>
+<li><code><a title="genshin.models.base.BaseCharacter.traveler_name" href="#genshin.models.base.BaseCharacter.traveler_name">traveler_name</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="genshin.models.base.CharacterIcon" href="#genshin.models.base.CharacterIcon">CharacterIcon</a></code></h4>
+<ul class="">
+<li><code><a title="genshin.models.base.CharacterIcon.character_name" href="#genshin.models.base.CharacterIcon.character_name">character_name</a></code></li>
+<li><code><a title="genshin.models.base.CharacterIcon.create_icon" href="#genshin.models.base.CharacterIcon.create_icon">create_icon</a></code></li>
+<li><code><a title="genshin.models.base.CharacterIcon.icon" href="#genshin.models.base.CharacterIcon.icon">icon</a></code></li>
+<li><code><a title="genshin.models.base.CharacterIcon.image" href="#genshin.models.base.CharacterIcon.image">image</a></code></li>
+<li><code><a title="genshin.models.base.CharacterIcon.side_icon" href="#genshin.models.base.CharacterIcon.side_icon">side_icon</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="genshin.models.base.GenshinModel" href="#genshin.models.base.GenshinModel">GenshinModel</a></code></h4>
+<ul class="">
+<li><code><a title="genshin.models.base.GenshinModel.Config" href="#genshin.models.base.GenshinModel.Config">Config</a></code></li>
+<li><code><a title="genshin.models.base.GenshinModel.dict" href="#genshin.models.base.GenshinModel.dict">dict</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="genshin.models.base.PartialCharacter" href="#genshin.models.base.PartialCharacter">PartialCharacter</a></code></h4>
+<ul class="">
+<li><code><a title="genshin.models.base.PartialCharacter.constellation" href="#genshin.models.base.PartialCharacter.constellation">constellation</a></code></li>
+<li><code><a title="genshin.models.base.PartialCharacter.friendship" href="#genshin.models.base.PartialCharacter.friendship">friendship</a></code></li>
+<li><code><a title="genshin.models.base.PartialCharacter.level" href="#genshin.models.base.PartialCharacter.level">level</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="genshin.models.base.Unique" href="#genshin.models.base.Unique">Unique</a></code></h4>
+<ul class="">
+<li><code><a title="genshin.models.base.Unique.id" href="#genshin.models.base.Unique.id">id</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2.dev21+g6d35cca</a>.</p>
+</footer>
+</body>
+</html>

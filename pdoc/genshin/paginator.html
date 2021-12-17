@@ -1,0 +1,2111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2.dev21+g6d35cca" />
+<title>genshin.paginator API documentation</title>
+<meta name="description" content="Paginators for abstracting paginated resources" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>genshin.paginator</code></h1>
+</header>
+<section id="section-intro">
+<p>Paginators for abstracting paginated resources</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;Paginators for abstracting paginated resources&#34;&#34;&#34;
+from __future__ import annotations
+
+import abc
+import asyncio
+import heapq
+from datetime import datetime
+from typing import *
+
+from .models import *
+from .utils import aislice, amerge
+
+if TYPE_CHECKING:
+    from .client import ChineseClient, GenshinClient
+
+__all__ = [
+    &#34;BasePaginator&#34;,
+    &#34;DailyRewardPaginator&#34;,
+    &#34;ChineseDailyRewardPaginator&#34;,
+    &#34;DiaryPaginator&#34;,
+    &#34;IDPagintor&#34;,
+    &#34;AuthkeyPaginator&#34;,
+    &#34;WishHistory&#34;,
+    &#34;Transactions&#34;,
+    &#34;MergedPaginator&#34;,
+    &#34;MergedWishHistory&#34;,
+    &#34;MergedTransactions&#34;,
+]
+
+
+class _Model(Protocol):
+    id: int
+    time: datetime
+
+
+T = TypeVar(&#34;T&#34;, bound=Any)
+MT = TypeVar(&#34;MT&#34;, bound=_Model, covariant=True)
+TransactionT = TypeVar(&#34;TransactionT&#34;, bound=BaseTransaction, covariant=True)
+
+
+class BasePaginator(abc.ABC):
+    &#34;&#34;&#34;A base paginator requiring the implementation of some methods&#34;&#34;&#34;
+
+    @property
+    @abc.abstractmethod
+    def exhausted(self) -&gt; bool:
+        ...
+
+    @abc.abstractmethod
+    async def next_page(self) -&gt; Any:
+        ...
+
+    @abc.abstractmethod
+    def __aiter__(self) -&gt; AsyncIterator[Any]:
+        ...
+
+    async def flatten(self) -&gt; Sequence[Any]:
+        return [item async for item in self]
+
+    def __await__(self) -&gt; Generator[Any, Any, Sequence[Any]]:
+        return self.flatten().__await__()
+
+
+class DailyRewardPaginator(BasePaginator):
+    &#34;&#34;&#34;A paginator specifically for claimed daily rewards&#34;&#34;&#34;
+
+    client: GenshinClient
+    limit: Optional[int]
+    lang: Optional[str]
+    current_page: Optional[int]
+
+    page_size: int = 10
+
+    def __init__(self, client: GenshinClient, limit: int = None, lang: str = None) -&gt; None:
+        &#34;&#34;&#34;Create a new daily reward pagintor
+
+        :param client: A client for making http requests
+        :param limit: The maximum amount of rewards to get
+        :param lang: The language to use - currently broken
+        &#34;&#34;&#34;
+        self.client = client
+        self.limit = limit
+        self.lang = lang
+
+        self.current_page = 1
+
+    @property
+    def exhausted(self) -&gt; bool:
+        &#34;&#34;&#34;Whether all pages have been fetched&#34;&#34;&#34;
+        return self.current_page is None
+
+    def __repr__(self) -&gt; str:
+        return f&#34;{type(self).__name__}(limit={self.limit})&#34;
+
+    async def _get_page(self, page: int) -&gt; List[ClaimedDailyReward]:
+        params = dict(current_page=page)
+        data = await self.client.request_daily_reward(&#34;award&#34;, params=params, lang=self.lang)
+        return [ClaimedDailyReward(**i) for i in data[&#34;list&#34;]]
+
+    async def next_page(self) -&gt; List[ClaimedDailyReward]:
+        &#34;&#34;&#34;Get the next page of the paginator&#34;&#34;&#34;
+        if self.current_page is None:
+            raise Exception(&#34;No more pages&#34;)
+
+        data = await self._get_page(self.current_page)
+
+        if len(data) &lt; self.page_size:
+            self.current_page = None
+            return data
+
+        self.current_page += 1
+        return data
+
+    async def _iter(self) -&gt; AsyncIterator[ClaimedDailyReward]:
+        &#34;&#34;&#34;Iterate over pages until the end&#34;&#34;&#34;
+        while not self.exhausted:
+            page = await self.next_page()
+            for i in page:
+                yield i
+
+    def __aiter__(self) -&gt; AsyncIterator[ClaimedDailyReward]:
+        &#34;&#34;&#34;Iterate over all pages until the limit is reached&#34;&#34;&#34;
+        return aislice(self._iter(), self.limit)
+
+
+class ChineseDailyRewardPaginator(DailyRewardPaginator):
+    &#34;&#34;&#34;A paginator specifically for claimed daily rewards on chinese bbs&#34;&#34;&#34;
+
+    client: ChineseClient
+    uid: Optional[int]
+    limit: Optional[int]
+    current_page: Optional[int]
+
+    page_size: int = 10
+
+    def __init__(self, client: ChineseClient, uid: int = None, limit: int = None) -&gt; None:
+        &#34;&#34;&#34;Create a new daily reward pagintor
+
+        :param client: A client for making http requests
+        :param uid: Genshin uid of the currently logged-in user
+        :param limit: The maximum amount of rewards to get
+        &#34;&#34;&#34;
+        self.client = client
+        self.uid = uid
+        self.limit = limit
+
+    async def _get_page(self, page: int) -&gt; List[ClaimedDailyReward]:
+        params = dict(current_page=page)
+        data = await self.client.request_daily_reward(&#34;award&#34;, self.uid, params=params)
+        return [ClaimedDailyReward(**i) for i in data[&#34;list&#34;]]
+
+
+class DiaryPaginator(BasePaginator):
+    &#34;&#34;&#34;A paginator specifically for diary entries&#34;&#34;&#34;
+
+    # TODO: Option to merge all months together
+    client: GenshinClient
+
+    uid: Optional[int]
+    type: int
+    month: Optional[int]
+    limit: Optional[int]
+    lang: Optional[str]
+
+    _data: Optional[BaseDiary] = None
+    page_size: int = 10
+
+    def __init__(
+        self,
+        client: GenshinClient,
+        uid: int = None,
+        type: int = 1,
+        month: int = None,
+        limit: int = None,
+        lang: str = None,
+    ) -&gt; None:
+        &#34;&#34;&#34;Create a new daily reward pagintor
+
+        :param client: A client for making http requests
+        :param uid: Genshin uid of the currently logged-in user
+        :param type: The type of currency to get
+        :param month: The month in the year to see the history for
+        :param limit: The maximum amount of actions to get
+        :param lang: The language to use
+        &#34;&#34;&#34;
+        self.client = client
+        self.uid = uid
+        self.type = type
+        self.month = month
+        self.limit = limit
+        self.lang = lang
+
+        self.current_page = 1
+
+    @property
+    def exhausted(self) -&gt; bool:
+        &#34;&#34;&#34;Whether all pages have been fetched&#34;&#34;&#34;
+        return self.current_page is None
+
+    def __repr__(self) -&gt; str:
+        return f&#34;{type(self).__name__}(uid={self.uid}, type={self.type}, limit={self.limit})&#34;
+
+    async def _get_page(self, page: int) -&gt; DiaryPage:
+        data = await self.client.request_ledger(
+            self.uid,
+            detail=True,
+            month=self.month,
+            lang=self.lang,
+            params=dict(type=self.type, page=page, limit=10),
+        )
+        return DiaryPage(**data)
+
+    async def next_page(self) -&gt; List[DiaryAction]:
+        &#34;&#34;&#34;Get the next page of the paginator&#34;&#34;&#34;
+        if self.current_page is None:
+            raise Exception(&#34;No more pages&#34;)
+
+        page = await self._get_page(self.current_page)
+        self._data = page
+
+        actions = page.actions
+
+        if len(actions) &lt; self.page_size:
+            self.current_page = None
+            return actions
+
+        self.current_page += 1
+        return actions
+
+    async def _iter(self) -&gt; AsyncIterator[DiaryAction]:
+        &#34;&#34;&#34;Iterate over pages until the end&#34;&#34;&#34;
+        while not self.exhausted:
+            page = await self.next_page()
+            for i in page:
+                yield i
+
+    def __aiter__(self) -&gt; AsyncIterator[DiaryAction]:
+        &#34;&#34;&#34;Iterate over all pages until the limit is reached&#34;&#34;&#34;
+        return aislice(self._iter(), self.limit)
+
+    @property
+    def data(self) -&gt; BaseDiary:
+        &#34;&#34;&#34;Get data bound to the diary
+
+        This requires at least one page to have been fetched
+        &#34;&#34;&#34;
+        if self._data is None:
+            raise RuntimeError(&#34;At least one item must be fetched before data can be gotten&#34;)
+
+        return self._data
+
+
+class IDPagintor(BasePaginator, Generic[MT]):
+    &#34;&#34;&#34;A paginator of genshin end_id pages&#34;&#34;&#34;
+
+    __repr_args__: Sequence[str] = [&#34;limit&#34;]
+
+    client: GenshinClient
+    limit: Optional[int]
+    end_id: Optional[int]
+
+    page_size: int = 20
+
+    def __init__(self, client: GenshinClient, *, limit: int = None, end_id: int = 0) -&gt; None:
+        &#34;&#34;&#34;Create a new paginator
+
+        :param client: A client for making http requests
+        :param limit: The maximum amount of rewards to get
+        :param end_id: The ending id to start getting data from
+        &#34;&#34;&#34;
+        self.client = client
+        self.limit = limit
+        self.end_id = end_id
+
+    @property
+    def exhausted(self) -&gt; bool:
+        &#34;&#34;&#34;Whether all pages have been fetched&#34;&#34;&#34;
+        return self.end_id is None
+
+    def __repr__(self) -&gt; str:
+        args = &#34;, &#34;.join(f&#34;{i}={getattr(self, i)!r}&#34; for i in self.__repr_args__)
+        return f&#34;{type(self).__name__}({args})&#34;
+
+    async def _get_page(self, end_id: int) -&gt; List[MT]:
+        raise NotImplementedError
+
+    def _cache_key(self, end_id: int) -&gt; Tuple[int, str]:
+        return (end_id, &#34;&#34;)
+
+    def _update_cache(self, data: List[MT]) -&gt; bool:
+        if self.client.paginator_cache is None:
+            return False
+
+        cache = self.client.paginator_cache
+
+        if self.end_id:
+            cache[self._cache_key(self.end_id)] = data[0]
+
+        for p, n in zip(data, data[1:]):
+            cache[self._cache_key(p.id)] = n
+
+        return True
+
+    def _collect_cache(self) -&gt; Iterator[MT]:
+        cache = self.client.paginator_cache
+        if cache is None or self.end_id is None:
+            return
+
+        key = self._cache_key(self.end_id)
+        while key in cache:
+            yield cache[key]
+            self.end_id = cache[key].id
+            key = self._cache_key(self.end_id)
+
+    async def next_page(self) -&gt; List[MT]:
+        &#34;&#34;&#34;Get the next page of the paginator&#34;&#34;&#34;
+        if self.end_id is None:
+            raise Exception(&#34;No more pages&#34;)
+
+        data = await self._get_page(self.end_id)
+
+        self._update_cache(data)
+
+        # mark paginator as exhausted
+        if len(data) &lt; self.page_size:
+            self.end_id = None
+            return data
+
+        self.end_id = data[-1].id
+        return data
+
+    async def _iter(self) -&gt; AsyncIterator[MT]:
+        &#34;&#34;&#34;Iterate over pages until the end&#34;&#34;&#34;
+        # tfw no yield from in asyn iterators
+        while self.end_id is not None:
+            for i in self._collect_cache():
+                yield i
+
+            page = await self.next_page()
+            for i in page:
+                yield i
+
+    def __aiter__(self) -&gt; AsyncIterator[MT]:
+        &#34;&#34;&#34;Iterate over all pages until the limit is reached&#34;&#34;&#34;
+        return aislice(self._iter(), self.limit)
+
+    async def flatten(self, *, lazy: bool = True) -&gt; List[MT]:
+        &#34;&#34;&#34;Flatten the entire iterator into a list
+
+        :param lazy: Limit to only one request at a time
+        &#34;&#34;&#34;
+        return [item async for item in self]
+
+    async def first(self) -&gt; MT:
+        &#34;&#34;&#34;Get the very first item&#34;&#34;&#34;
+        x = await self._iter().__anext__()
+        self.end_id = None  # invalidate the iterator
+        return x
+
+
+class AuthkeyPaginator(IDPagintor[MT]):
+    &#34;&#34;&#34;A paginator which utilizes authkeys&#34;&#34;&#34;
+
+    __repr_args__ = [&#34;limit&#34;, &#34;lang&#34;]
+
+    _authkey: Optional[str]
+    _lang: Optional[str]
+
+    def __init__(
+        self,
+        client: GenshinClient,
+        lang: str = None,
+        authkey: str = None,
+        limit: int = None,
+        end_id: int = 0,
+    ) -&gt; None:
+        &#34;&#34;&#34;Create a new authkey paginator
+
+        :param client: A client for making http requests
+        :param lang: The language to use
+        :param authkey: The authkey to use when requesting data
+        :param limit: The maximum amount of rewards to get
+        :param end_id: The ending id to start getting data from
+        &#34;&#34;&#34;
+        super().__init__(client, limit=limit, end_id=end_id)
+        self._lang = lang
+        self._authkey = authkey
+
+    @property
+    def lang(self) -&gt; str:
+        &#34;&#34;&#34;The language used for fetching data&#34;&#34;&#34;
+        return self._lang or self.client.lang
+
+    @property
+    def authkey(self) -&gt; str:
+        &#34;&#34;&#34;The authkey used for fetching data&#34;&#34;&#34;
+        authkey = self._authkey or self.client.authkey
+        if authkey is None:
+            raise RuntimeError(&#34;No authkey set for client&#34;)
+
+        return authkey
+
+
+class WishHistory(AuthkeyPaginator[Wish]):
+    &#34;&#34;&#34;A paginator for wishes&#34;&#34;&#34;
+
+    __repr_args__ = [&#34;banner_type&#34;, &#34;limit&#34;, &#34;lang&#34;]
+
+    client: GenshinClient
+    banner_type: BannerType
+
+    def __init__(self, client: GenshinClient, banner_type: BannerType, **kwargs: Any) -&gt; None:
+        &#34;&#34;&#34;Create a new wish history paginator
+
+        :param client: A client for making http requests
+        :param banner_type: The banner from which to get the wishes
+        :param lang: The language to use
+        :param authkey: The authkey to use when requesting data
+        :param limit: The maximum amount of rewards to get
+        :param end_id: The ending id to start getting data from
+        &#34;&#34;&#34;
+        super().__init__(client, **kwargs)
+        if banner_type not in [100, 200, 301, 302]:
+            raise ValueError(f&#34;Invalid banner type: {banner_type!r}&#34;)
+        self.banner_type = banner_type
+
+    def _cache_key(self, end_id: int) -&gt; Tuple[int, str]:
+        return (end_id, self.lang)
+
+    async def _get_banner_name(self) -&gt; str:
+        &#34;&#34;&#34;Get the banner name of banner_type&#34;&#34;&#34;
+        banner_types = await self.client.get_banner_names(lang=self._lang, authkey=self._authkey)
+        return banner_types[self.banner_type]
+
+    async def _get_page(self, end_id: int) -&gt; List[Wish]:
+        data = await self.client.request_gacha_info(
+            &#34;getGachaLog&#34;,
+            lang=self._lang,
+            authkey=self._authkey,
+            params=dict(gacha_type=self.banner_type, size=self.page_size, end_id=end_id),
+        )
+        banner_name = await self._get_banner_name()
+        return [Wish(**i, banner_name=banner_name) for i in data[&#34;list&#34;]]
+
+
+class Transactions(AuthkeyPaginator[TransactionT]):
+    &#34;&#34;&#34;A paginator for transactions&#34;&#34;&#34;
+
+    __repr_args__ = [&#34;kind&#34;, &#34;limit&#34;, &#34;lang&#34;]
+
+    client: GenshinClient
+    kind: TransactionKind
+
+    def __init__(self, client: GenshinClient, kind: TransactionKind, **kwargs: Any) -&gt; None:
+        &#34;&#34;&#34;Create a new transaction paginator
+
+        :param client: A client for making http requests
+        :param kind: The kind of transactions to get
+        :param lang: The language to use
+        :param authkey: The authkey to use when requesting data
+        :param limit: The maximum amount of rewards to get
+        :param end_id: The ending id to start getting data from
+        &#34;&#34;&#34;
+        super().__init__(client, **kwargs)
+        if kind not in [&#34;primogem&#34;, &#34;crystal&#34;, &#34;resin&#34;, &#34;artifact&#34;, &#34;weapon&#34;]:
+            raise ValueError(f&#34;Invalid transaction kind: {kind}&#34;)
+        self.kind = kind
+
+    def _cache_key(self, end_id: int) -&gt; Tuple[int, str]:
+        return (end_id, self.lang)
+
+    async def _get_page(self, end_id: int):
+        endpoint = &#34;get&#34; + self.kind.capitalize() + &#34;Log&#34;
+
+        data, reasons = await asyncio.gather(
+            self.client.request_transaction(
+                endpoint,
+                lang=self._lang,
+                authkey=self._authkey,
+                params=dict(end_id=end_id, size=20),
+            ),
+            self.client._get_transaction_reasons(self.lang),
+        )
+
+        transactions = []
+        for trans in data[&#34;list&#34;]:
+            cls = ItemTransaction if &#34;name&#34; in trans else Transaction
+            reason_id = trans[&#34;reason&#34;]
+            trans = {**trans, &#34;reason_id&#34;: reason_id, &#34;reason&#34;: reasons.get(reason_id, &#34;&#34;)}
+            transactions.append(cls(**trans, kind=self.kind))
+
+        return transactions
+
+
+class MergedPaginator(AuthkeyPaginator[MT]):
+    &#34;&#34;&#34;A paginator merging a collection of other paginators&#34;&#34;&#34;
+
+    _paginators: List[IDPagintor[MT]]
+
+    def __init__(self, client: GenshinClient, **kwargs: Any) -&gt; None:
+        super().__init__(client, **kwargs)
+
+    def next_page(self) -&gt; NoReturn:
+        raise RuntimeError(&#39;Merged paginators cannot be gotten by &#34;pages&#34;&#39;)
+
+    def _key(self, item: _Model) -&gt; float:
+        return item.time.timestamp()
+
+    def _iter(self) -&gt; AsyncIterator[MT]:
+        return amerge(self._paginators, key=self._key)
+
+    async def flatten(self, *, lazy: bool = False) -&gt; List[MT]:
+        if self.limit is not None and lazy:
+            it = aislice(amerge(self._paginators, key=self._key), self.limit)
+            return [x async for x in it]
+
+        coros = (p.flatten() for p in self._paginators)
+        lists = await asyncio.gather(*coros)
+        return list(heapq.merge(*lists, key=self._key))[: self.limit]
+
+
+class MergedWishHistory(MergedPaginator[Wish]):
+    &#34;&#34;&#34;A paginator for wish histories from multiple banners&#34;&#34;&#34;
+
+    __repr_args__ = [&#34;banner_types&#34;, &#34;limit&#34;, &#34;lang&#34;]
+
+    client: GenshinClient
+    banner_types: List[BannerType]
+
+    def __init__(
+        self,
+        client: GenshinClient,
+        banner_types: List[BannerType] = None,
+        **kwargs: Any,
+    ) -&gt; None:
+        &#34;&#34;&#34;Create a new merged wish history paginator
+
+        :param client: A client for making http requests
+        :param banner_types: The banners from which to get the wishes
+        :param lang: The language to use
+        :param authkey: The authkey to use when requesting data
+        :param limit: The maximum amount of rewards to get
+        :param end_id: The ending id to start getting data from
+        &#34;&#34;&#34;
+        super().__init__(client, **kwargs)
+        self.banner_types = banner_types or [100, 200, 301, 302]
+
+        self._paginators = [WishHistory(client, b, **kwargs) for b in self.banner_types]
+
+    async def flatten(self, *, lazy: bool = False) -&gt; List[Wish]:
+        # before we gather all histories we should get the banner name
+        asyncio.create_task(self.client.get_banner_names(lang=self._lang, authkey=self._authkey))
+        return await super().flatten(lazy=lazy)
+
+
+class MergedTransactions(MergedPaginator[BaseTransaction]):
+    &#34;&#34;&#34;A paginator for transactions from multiple banners&#34;&#34;&#34;
+
+    __repr_args__ = [&#34;kinds&#34;, &#34;limit&#34;, &#34;lang&#34;]
+
+    client: GenshinClient
+    kinds: List[TransactionKind]
+
+    def __init__(
+        self,
+        client: GenshinClient,
+        kinds: List[TransactionKind] = None,
+        **kwargs: Any,
+    ) -&gt; None:
+        &#34;&#34;&#34;Create a new transaction paginator
+
+        :param client: A client for making http requests
+        :param kinds: The kinds of transactions to get
+        :param lang: The language to use
+        :param authkey: The authkey to use when requesting data
+        :param limit: The maximum amount of rewards to get
+        :param end_id: The ending id to start getting data from
+        &#34;&#34;&#34;
+        super().__init__(client, **kwargs)
+        self.kinds = kinds or [&#34;primogem&#34;, &#34;crystal&#34;, &#34;resin&#34;, &#34;artifact&#34;, &#34;weapon&#34;]
+
+        self._paginators = [Transactions(client, kind, **kwargs) for kind in self.kinds]</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="genshin.paginator.AuthkeyPaginator"><code class="flex name class">
+<span>class <span class="ident">AuthkeyPaginator</span></span>
+<span>(</span><span>client: GenshinClient, lang: str = None, authkey: str = None, limit: int = None, end_id: int = 0)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="args">Args:</h2>
+<dl>
+<dt><strong><code>client</code></strong></dt>
+<dd><p>A client for making http requests</p></dd>
+<dt><strong><code>lang</code></strong></dt>
+<dd><p>The language to use</p></dd>
+<dt><strong><code>authkey</code></strong></dt>
+<dd><p>The authkey to use when requesting data</p></dd>
+<dt><strong><code>limit</code></strong></dt>
+<dd><p>The maximum amount of rewards to get</p></dd>
+<dt><strong><code>end_id</code></strong></dt>
+<dd><p>The ending id to start getting data from</p></dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AuthkeyPaginator(IDPagintor[MT]):
+    &#34;&#34;&#34;A paginator which utilizes authkeys&#34;&#34;&#34;
+
+    __repr_args__ = [&#34;limit&#34;, &#34;lang&#34;]
+
+    _authkey: Optional[str]
+    _lang: Optional[str]
+
+    def __init__(
+        self,
+        client: GenshinClient,
+        lang: str = None,
+        authkey: str = None,
+        limit: int = None,
+        end_id: int = 0,
+    ) -&gt; None:
+        &#34;&#34;&#34;Create a new authkey paginator
+
+        :param client: A client for making http requests
+        :param lang: The language to use
+        :param authkey: The authkey to use when requesting data
+        :param limit: The maximum amount of rewards to get
+        :param end_id: The ending id to start getting data from
+        &#34;&#34;&#34;
+        super().__init__(client, limit=limit, end_id=end_id)
+        self._lang = lang
+        self._authkey = authkey
+
+    @property
+    def lang(self) -&gt; str:
+        &#34;&#34;&#34;The language used for fetching data&#34;&#34;&#34;
+        return self._lang or self.client.lang
+
+    @property
+    def authkey(self) -&gt; str:
+        &#34;&#34;&#34;The authkey used for fetching data&#34;&#34;&#34;
+        authkey = self._authkey or self.client.authkey
+        if authkey is None:
+            raise RuntimeError(&#34;No authkey set for client&#34;)
+
+        return authkey</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="genshin.paginator.IDPagintor" href="#genshin.paginator.IDPagintor">IDPagintor</a></li>
+<li><a title="genshin.paginator.BasePaginator" href="#genshin.paginator.BasePaginator">BasePaginator</a></li>
+<li>abc.ABC</li>
+<li>typing.Generic</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="genshin.paginator.MergedPaginator" href="#genshin.paginator.MergedPaginator">MergedPaginator</a></li>
+<li><a title="genshin.paginator.Transactions" href="#genshin.paginator.Transactions">Transactions</a></li>
+<li><a title="genshin.paginator.WishHistory" href="#genshin.paginator.WishHistory">WishHistory</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="genshin.paginator.AuthkeyPaginator.authkey"><code class="name">var <span class="ident">authkey</span> : str</code></dt>
+<dd>
+<div class="desc"><p>The authkey used for fetching data</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def authkey(self) -&gt; str:
+    &#34;&#34;&#34;The authkey used for fetching data&#34;&#34;&#34;
+    authkey = self._authkey or self.client.authkey
+    if authkey is None:
+        raise RuntimeError(&#34;No authkey set for client&#34;)
+
+    return authkey</code></pre>
+</details>
+</dd>
+<dt id="genshin.paginator.AuthkeyPaginator.lang"><code class="name">var <span class="ident">lang</span> : str</code></dt>
+<dd>
+<div class="desc"><p>The language used for fetching data</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def lang(self) -&gt; str:
+    &#34;&#34;&#34;The language used for fetching data&#34;&#34;&#34;
+    return self._lang or self.client.lang</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="genshin.paginator.IDPagintor" href="#genshin.paginator.IDPagintor">IDPagintor</a></b></code>:
+<ul class="hlist">
+<li><code><a title="genshin.paginator.IDPagintor.exhausted" href="#genshin.paginator.IDPagintor.exhausted">exhausted</a></code></li>
+<li><code><a title="genshin.paginator.IDPagintor.first" href="#genshin.paginator.IDPagintor.first">first</a></code></li>
+<li><code><a title="genshin.paginator.IDPagintor.flatten" href="#genshin.paginator.IDPagintor.flatten">flatten</a></code></li>
+<li><code><a title="genshin.paginator.IDPagintor.next_page" href="#genshin.paginator.IDPagintor.next_page">next_page</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="genshin.paginator.BasePaginator"><code class="flex name class">
+<span>class <span class="ident">BasePaginator</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>A base paginator requiring the implementation of some methods</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class BasePaginator(abc.ABC):
+    &#34;&#34;&#34;A base paginator requiring the implementation of some methods&#34;&#34;&#34;
+
+    @property
+    @abc.abstractmethod
+    def exhausted(self) -&gt; bool:
+        ...
+
+    @abc.abstractmethod
+    async def next_page(self) -&gt; Any:
+        ...
+
+    @abc.abstractmethod
+    def __aiter__(self) -&gt; AsyncIterator[Any]:
+        ...
+
+    async def flatten(self) -&gt; Sequence[Any]:
+        return [item async for item in self]
+
+    def __await__(self) -&gt; Generator[Any, Any, Sequence[Any]]:
+        return self.flatten().__await__()</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>abc.ABC</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="genshin.paginator.DailyRewardPaginator" href="#genshin.paginator.DailyRewardPaginator">DailyRewardPaginator</a></li>
+<li><a title="genshin.paginator.DiaryPaginator" href="#genshin.paginator.DiaryPaginator">DiaryPaginator</a></li>
+<li><a title="genshin.paginator.IDPagintor" href="#genshin.paginator.IDPagintor">IDPagintor</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="genshin.paginator.BasePaginator.exhausted"><code class="name">var <span class="ident">exhausted</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+@abc.abstractmethod
+def exhausted(self) -&gt; bool:
+    ...</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="genshin.paginator.BasePaginator.flatten"><code class="name flex">
+<span>async def <span class="ident">flatten</span></span>(<span>self) ‑> Sequence[Any]</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">async def flatten(self) -&gt; Sequence[Any]:
+    return [item async for item in self]</code></pre>
+</details>
+</dd>
+<dt id="genshin.paginator.BasePaginator.next_page"><code class="name flex">
+<span>async def <span class="ident">next_page</span></span>(<span>self) ‑> Any</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abc.abstractmethod
+async def next_page(self) -&gt; Any:
+    ...</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="genshin.paginator.ChineseDailyRewardPaginator"><code class="flex name class">
+<span>class <span class="ident">ChineseDailyRewardPaginator</span></span>
+<span>(</span><span>client: ChineseClient, uid: int = None, limit: int = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="args">Args:</h2>
+<dl>
+<dt><strong><code>client</code></strong></dt>
+<dd><p>A client for making http requests</p></dd>
+<dt><strong><code>uid</code></strong></dt>
+<dd><p>Genshin uid of the currently logged-in user</p></dd>
+<dt><strong><code>limit</code></strong></dt>
+<dd><p>The maximum amount of rewards to get</p></dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ChineseDailyRewardPaginator(DailyRewardPaginator):
+    &#34;&#34;&#34;A paginator specifically for claimed daily rewards on chinese bbs&#34;&#34;&#34;
+
+    client: ChineseClient
+    uid: Optional[int]
+    limit: Optional[int]
+    current_page: Optional[int]
+
+    page_size: int = 10
+
+    def __init__(self, client: ChineseClient, uid: int = None, limit: int = None) -&gt; None:
+        &#34;&#34;&#34;Create a new daily reward pagintor
+
+        :param client: A client for making http requests
+        :param uid: Genshin uid of the currently logged-in user
+        :param limit: The maximum amount of rewards to get
+        &#34;&#34;&#34;
+        self.client = client
+        self.uid = uid
+        self.limit = limit
+
+    async def _get_page(self, page: int) -&gt; List[ClaimedDailyReward]:
+        params = dict(current_page=page)
+        data = await self.client.request_daily_reward(&#34;award&#34;, self.uid, params=params)
+        return [ClaimedDailyReward(**i) for i in data[&#34;list&#34;]]</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="genshin.paginator.DailyRewardPaginator" href="#genshin.paginator.DailyRewardPaginator">DailyRewardPaginator</a></li>
+<li><a title="genshin.paginator.BasePaginator" href="#genshin.paginator.BasePaginator">BasePaginator</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="genshin.paginator.ChineseDailyRewardPaginator.client"><code class="name">var <span class="ident">client</span> : ChineseClient</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.paginator.ChineseDailyRewardPaginator.current_page"><code class="name">var <span class="ident">current_page</span> : Optional[int]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.paginator.ChineseDailyRewardPaginator.limit"><code class="name">var <span class="ident">limit</span> : Optional[int]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.paginator.ChineseDailyRewardPaginator.page_size"><code class="name">var <span class="ident">page_size</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.paginator.ChineseDailyRewardPaginator.uid"><code class="name">var <span class="ident">uid</span> : Optional[int]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="genshin.paginator.DailyRewardPaginator" href="#genshin.paginator.DailyRewardPaginator">DailyRewardPaginator</a></b></code>:
+<ul class="hlist">
+<li><code><a title="genshin.paginator.DailyRewardPaginator.exhausted" href="#genshin.paginator.DailyRewardPaginator.exhausted">exhausted</a></code></li>
+<li><code><a title="genshin.paginator.DailyRewardPaginator.next_page" href="#genshin.paginator.DailyRewardPaginator.next_page">next_page</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="genshin.paginator.DailyRewardPaginator"><code class="flex name class">
+<span>class <span class="ident">DailyRewardPaginator</span></span>
+<span>(</span><span>client: GenshinClient, limit: int = None, lang: str = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="args">Args:</h2>
+<dl>
+<dt><strong><code>client</code></strong></dt>
+<dd><p>A client for making http requests</p></dd>
+<dt><strong><code>limit</code></strong></dt>
+<dd><p>The maximum amount of rewards to get</p></dd>
+<dt><strong><code>lang</code></strong></dt>
+<dd><p>The language to use - currently broken</p></dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DailyRewardPaginator(BasePaginator):
+    &#34;&#34;&#34;A paginator specifically for claimed daily rewards&#34;&#34;&#34;
+
+    client: GenshinClient
+    limit: Optional[int]
+    lang: Optional[str]
+    current_page: Optional[int]
+
+    page_size: int = 10
+
+    def __init__(self, client: GenshinClient, limit: int = None, lang: str = None) -&gt; None:
+        &#34;&#34;&#34;Create a new daily reward pagintor
+
+        :param client: A client for making http requests
+        :param limit: The maximum amount of rewards to get
+        :param lang: The language to use - currently broken
+        &#34;&#34;&#34;
+        self.client = client
+        self.limit = limit
+        self.lang = lang
+
+        self.current_page = 1
+
+    @property
+    def exhausted(self) -&gt; bool:
+        &#34;&#34;&#34;Whether all pages have been fetched&#34;&#34;&#34;
+        return self.current_page is None
+
+    def __repr__(self) -&gt; str:
+        return f&#34;{type(self).__name__}(limit={self.limit})&#34;
+
+    async def _get_page(self, page: int) -&gt; List[ClaimedDailyReward]:
+        params = dict(current_page=page)
+        data = await self.client.request_daily_reward(&#34;award&#34;, params=params, lang=self.lang)
+        return [ClaimedDailyReward(**i) for i in data[&#34;list&#34;]]
+
+    async def next_page(self) -&gt; List[ClaimedDailyReward]:
+        &#34;&#34;&#34;Get the next page of the paginator&#34;&#34;&#34;
+        if self.current_page is None:
+            raise Exception(&#34;No more pages&#34;)
+
+        data = await self._get_page(self.current_page)
+
+        if len(data) &lt; self.page_size:
+            self.current_page = None
+            return data
+
+        self.current_page += 1
+        return data
+
+    async def _iter(self) -&gt; AsyncIterator[ClaimedDailyReward]:
+        &#34;&#34;&#34;Iterate over pages until the end&#34;&#34;&#34;
+        while not self.exhausted:
+            page = await self.next_page()
+            for i in page:
+                yield i
+
+    def __aiter__(self) -&gt; AsyncIterator[ClaimedDailyReward]:
+        &#34;&#34;&#34;Iterate over all pages until the limit is reached&#34;&#34;&#34;
+        return aislice(self._iter(), self.limit)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="genshin.paginator.BasePaginator" href="#genshin.paginator.BasePaginator">BasePaginator</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="genshin.paginator.ChineseDailyRewardPaginator" href="#genshin.paginator.ChineseDailyRewardPaginator">ChineseDailyRewardPaginator</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="genshin.paginator.DailyRewardPaginator.client"><code class="name">var <span class="ident">client</span> : GenshinClient</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.paginator.DailyRewardPaginator.current_page"><code class="name">var <span class="ident">current_page</span> : Optional[int]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.paginator.DailyRewardPaginator.lang"><code class="name">var <span class="ident">lang</span> : Optional[str]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.paginator.DailyRewardPaginator.limit"><code class="name">var <span class="ident">limit</span> : Optional[int]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.paginator.DailyRewardPaginator.page_size"><code class="name">var <span class="ident">page_size</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="genshin.paginator.DailyRewardPaginator.exhausted"><code class="name">var <span class="ident">exhausted</span> : bool</code></dt>
+<dd>
+<div class="desc"><p>Whether all pages have been fetched</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def exhausted(self) -&gt; bool:
+    &#34;&#34;&#34;Whether all pages have been fetched&#34;&#34;&#34;
+    return self.current_page is None</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="genshin.paginator.DailyRewardPaginator.next_page"><code class="name flex">
+<span>async def <span class="ident">next_page</span></span>(<span>self) ‑> List[<a title="genshin.models.daily.ClaimedDailyReward" href="models/daily.html#genshin.models.daily.ClaimedDailyReward">ClaimedDailyReward</a>]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get the next page of the paginator</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">async def next_page(self) -&gt; List[ClaimedDailyReward]:
+    &#34;&#34;&#34;Get the next page of the paginator&#34;&#34;&#34;
+    if self.current_page is None:
+        raise Exception(&#34;No more pages&#34;)
+
+    data = await self._get_page(self.current_page)
+
+    if len(data) &lt; self.page_size:
+        self.current_page = None
+        return data
+
+    self.current_page += 1
+    return data</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="genshin.paginator.DiaryPaginator"><code class="flex name class">
+<span>class <span class="ident">DiaryPaginator</span></span>
+<span>(</span><span>client: GenshinClient, uid: int = None, type: int = 1, month: int = None, limit: int = None, lang: str = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="args">Args:</h2>
+<dl>
+<dt><strong><code>client</code></strong></dt>
+<dd><p>A client for making http requests</p></dd>
+<dt><strong><code>uid</code></strong></dt>
+<dd><p>Genshin uid of the currently logged-in user</p></dd>
+<dt><strong><code>type</code></strong></dt>
+<dd><p>The type of currency to get</p></dd>
+<dt><strong><code>month</code></strong></dt>
+<dd><p>The month in the year to see the history for</p></dd>
+<dt><strong><code>limit</code></strong></dt>
+<dd><p>The maximum amount of actions to get</p></dd>
+<dt><strong><code>lang</code></strong></dt>
+<dd><p>The language to use</p></dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DiaryPaginator(BasePaginator):
+    &#34;&#34;&#34;A paginator specifically for diary entries&#34;&#34;&#34;
+
+    # TODO: Option to merge all months together
+    client: GenshinClient
+
+    uid: Optional[int]
+    type: int
+    month: Optional[int]
+    limit: Optional[int]
+    lang: Optional[str]
+
+    _data: Optional[BaseDiary] = None
+    page_size: int = 10
+
+    def __init__(
+        self,
+        client: GenshinClient,
+        uid: int = None,
+        type: int = 1,
+        month: int = None,
+        limit: int = None,
+        lang: str = None,
+    ) -&gt; None:
+        &#34;&#34;&#34;Create a new daily reward pagintor
+
+        :param client: A client for making http requests
+        :param uid: Genshin uid of the currently logged-in user
+        :param type: The type of currency to get
+        :param month: The month in the year to see the history for
+        :param limit: The maximum amount of actions to get
+        :param lang: The language to use
+        &#34;&#34;&#34;
+        self.client = client
+        self.uid = uid
+        self.type = type
+        self.month = month
+        self.limit = limit
+        self.lang = lang
+
+        self.current_page = 1
+
+    @property
+    def exhausted(self) -&gt; bool:
+        &#34;&#34;&#34;Whether all pages have been fetched&#34;&#34;&#34;
+        return self.current_page is None
+
+    def __repr__(self) -&gt; str:
+        return f&#34;{type(self).__name__}(uid={self.uid}, type={self.type}, limit={self.limit})&#34;
+
+    async def _get_page(self, page: int) -&gt; DiaryPage:
+        data = await self.client.request_ledger(
+            self.uid,
+            detail=True,
+            month=self.month,
+            lang=self.lang,
+            params=dict(type=self.type, page=page, limit=10),
+        )
+        return DiaryPage(**data)
+
+    async def next_page(self) -&gt; List[DiaryAction]:
+        &#34;&#34;&#34;Get the next page of the paginator&#34;&#34;&#34;
+        if self.current_page is None:
+            raise Exception(&#34;No more pages&#34;)
+
+        page = await self._get_page(self.current_page)
+        self._data = page
+
+        actions = page.actions
+
+        if len(actions) &lt; self.page_size:
+            self.current_page = None
+            return actions
+
+        self.current_page += 1
+        return actions
+
+    async def _iter(self) -&gt; AsyncIterator[DiaryAction]:
+        &#34;&#34;&#34;Iterate over pages until the end&#34;&#34;&#34;
+        while not self.exhausted:
+            page = await self.next_page()
+            for i in page:
+                yield i
+
+    def __aiter__(self) -&gt; AsyncIterator[DiaryAction]:
+        &#34;&#34;&#34;Iterate over all pages until the limit is reached&#34;&#34;&#34;
+        return aislice(self._iter(), self.limit)
+
+    @property
+    def data(self) -&gt; BaseDiary:
+        &#34;&#34;&#34;Get data bound to the diary
+
+        This requires at least one page to have been fetched
+        &#34;&#34;&#34;
+        if self._data is None:
+            raise RuntimeError(&#34;At least one item must be fetched before data can be gotten&#34;)
+
+        return self._data</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="genshin.paginator.BasePaginator" href="#genshin.paginator.BasePaginator">BasePaginator</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="genshin.paginator.DiaryPaginator.client"><code class="name">var <span class="ident">client</span> : GenshinClient</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.paginator.DiaryPaginator.lang"><code class="name">var <span class="ident">lang</span> : Optional[str]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.paginator.DiaryPaginator.limit"><code class="name">var <span class="ident">limit</span> : Optional[int]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.paginator.DiaryPaginator.month"><code class="name">var <span class="ident">month</span> : Optional[int]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.paginator.DiaryPaginator.page_size"><code class="name">var <span class="ident">page_size</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.paginator.DiaryPaginator.type"><code class="name">var <span class="ident">type</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.paginator.DiaryPaginator.uid"><code class="name">var <span class="ident">uid</span> : Optional[int]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="genshin.paginator.DiaryPaginator.data"><code class="name">var <span class="ident">data</span> : <a title="genshin.models.diary.BaseDiary" href="models/diary.html#genshin.models.diary.BaseDiary">BaseDiary</a></code></dt>
+<dd>
+<div class="desc"><p>Get data bound to the diary</p>
+<p>This requires at least one page to have been fetched</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def data(self) -&gt; BaseDiary:
+    &#34;&#34;&#34;Get data bound to the diary
+
+    This requires at least one page to have been fetched
+    &#34;&#34;&#34;
+    if self._data is None:
+        raise RuntimeError(&#34;At least one item must be fetched before data can be gotten&#34;)
+
+    return self._data</code></pre>
+</details>
+</dd>
+<dt id="genshin.paginator.DiaryPaginator.exhausted"><code class="name">var <span class="ident">exhausted</span> : bool</code></dt>
+<dd>
+<div class="desc"><p>Whether all pages have been fetched</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def exhausted(self) -&gt; bool:
+    &#34;&#34;&#34;Whether all pages have been fetched&#34;&#34;&#34;
+    return self.current_page is None</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="genshin.paginator.DiaryPaginator.next_page"><code class="name flex">
+<span>async def <span class="ident">next_page</span></span>(<span>self) ‑> List[<a title="genshin.models.diary.DiaryAction" href="models/diary.html#genshin.models.diary.DiaryAction">DiaryAction</a>]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get the next page of the paginator</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">async def next_page(self) -&gt; List[DiaryAction]:
+    &#34;&#34;&#34;Get the next page of the paginator&#34;&#34;&#34;
+    if self.current_page is None:
+        raise Exception(&#34;No more pages&#34;)
+
+    page = await self._get_page(self.current_page)
+    self._data = page
+
+    actions = page.actions
+
+    if len(actions) &lt; self.page_size:
+        self.current_page = None
+        return actions
+
+    self.current_page += 1
+    return actions</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="genshin.paginator.IDPagintor"><code class="flex name class">
+<span>class <span class="ident">IDPagintor</span></span>
+<span>(</span><span>client: GenshinClient, *, limit: int = None, end_id: int = 0)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="args">Args:</h2>
+<dl>
+<dt><strong><code>client</code></strong></dt>
+<dd><p>A client for making http requests</p></dd>
+<dt><strong><code>limit</code></strong></dt>
+<dd><p>The maximum amount of rewards to get</p></dd>
+<dt><strong><code>end_id</code></strong></dt>
+<dd><p>The ending id to start getting data from</p></dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class IDPagintor(BasePaginator, Generic[MT]):
+    &#34;&#34;&#34;A paginator of genshin end_id pages&#34;&#34;&#34;
+
+    __repr_args__: Sequence[str] = [&#34;limit&#34;]
+
+    client: GenshinClient
+    limit: Optional[int]
+    end_id: Optional[int]
+
+    page_size: int = 20
+
+    def __init__(self, client: GenshinClient, *, limit: int = None, end_id: int = 0) -&gt; None:
+        &#34;&#34;&#34;Create a new paginator
+
+        :param client: A client for making http requests
+        :param limit: The maximum amount of rewards to get
+        :param end_id: The ending id to start getting data from
+        &#34;&#34;&#34;
+        self.client = client
+        self.limit = limit
+        self.end_id = end_id
+
+    @property
+    def exhausted(self) -&gt; bool:
+        &#34;&#34;&#34;Whether all pages have been fetched&#34;&#34;&#34;
+        return self.end_id is None
+
+    def __repr__(self) -&gt; str:
+        args = &#34;, &#34;.join(f&#34;{i}={getattr(self, i)!r}&#34; for i in self.__repr_args__)
+        return f&#34;{type(self).__name__}({args})&#34;
+
+    async def _get_page(self, end_id: int) -&gt; List[MT]:
+        raise NotImplementedError
+
+    def _cache_key(self, end_id: int) -&gt; Tuple[int, str]:
+        return (end_id, &#34;&#34;)
+
+    def _update_cache(self, data: List[MT]) -&gt; bool:
+        if self.client.paginator_cache is None:
+            return False
+
+        cache = self.client.paginator_cache
+
+        if self.end_id:
+            cache[self._cache_key(self.end_id)] = data[0]
+
+        for p, n in zip(data, data[1:]):
+            cache[self._cache_key(p.id)] = n
+
+        return True
+
+    def _collect_cache(self) -&gt; Iterator[MT]:
+        cache = self.client.paginator_cache
+        if cache is None or self.end_id is None:
+            return
+
+        key = self._cache_key(self.end_id)
+        while key in cache:
+            yield cache[key]
+            self.end_id = cache[key].id
+            key = self._cache_key(self.end_id)
+
+    async def next_page(self) -&gt; List[MT]:
+        &#34;&#34;&#34;Get the next page of the paginator&#34;&#34;&#34;
+        if self.end_id is None:
+            raise Exception(&#34;No more pages&#34;)
+
+        data = await self._get_page(self.end_id)
+
+        self._update_cache(data)
+
+        # mark paginator as exhausted
+        if len(data) &lt; self.page_size:
+            self.end_id = None
+            return data
+
+        self.end_id = data[-1].id
+        return data
+
+    async def _iter(self) -&gt; AsyncIterator[MT]:
+        &#34;&#34;&#34;Iterate over pages until the end&#34;&#34;&#34;
+        # tfw no yield from in asyn iterators
+        while self.end_id is not None:
+            for i in self._collect_cache():
+                yield i
+
+            page = await self.next_page()
+            for i in page:
+                yield i
+
+    def __aiter__(self) -&gt; AsyncIterator[MT]:
+        &#34;&#34;&#34;Iterate over all pages until the limit is reached&#34;&#34;&#34;
+        return aislice(self._iter(), self.limit)
+
+    async def flatten(self, *, lazy: bool = True) -&gt; List[MT]:
+        &#34;&#34;&#34;Flatten the entire iterator into a list
+
+        :param lazy: Limit to only one request at a time
+        &#34;&#34;&#34;
+        return [item async for item in self]
+
+    async def first(self) -&gt; MT:
+        &#34;&#34;&#34;Get the very first item&#34;&#34;&#34;
+        x = await self._iter().__anext__()
+        self.end_id = None  # invalidate the iterator
+        return x</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="genshin.paginator.BasePaginator" href="#genshin.paginator.BasePaginator">BasePaginator</a></li>
+<li>abc.ABC</li>
+<li>typing.Generic</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="genshin.paginator.AuthkeyPaginator" href="#genshin.paginator.AuthkeyPaginator">AuthkeyPaginator</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="genshin.paginator.IDPagintor.client"><code class="name">var <span class="ident">client</span> : GenshinClient</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.paginator.IDPagintor.end_id"><code class="name">var <span class="ident">end_id</span> : Optional[int]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.paginator.IDPagintor.limit"><code class="name">var <span class="ident">limit</span> : Optional[int]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.paginator.IDPagintor.page_size"><code class="name">var <span class="ident">page_size</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="genshin.paginator.IDPagintor.exhausted"><code class="name">var <span class="ident">exhausted</span> : bool</code></dt>
+<dd>
+<div class="desc"><p>Whether all pages have been fetched</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def exhausted(self) -&gt; bool:
+    &#34;&#34;&#34;Whether all pages have been fetched&#34;&#34;&#34;
+    return self.end_id is None</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="genshin.paginator.IDPagintor.first"><code class="name flex">
+<span>async def <span class="ident">first</span></span>(<span>self) ‑> +MT</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get the very first item</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">async def first(self) -&gt; MT:
+    &#34;&#34;&#34;Get the very first item&#34;&#34;&#34;
+    x = await self._iter().__anext__()
+    self.end_id = None  # invalidate the iterator
+    return x</code></pre>
+</details>
+</dd>
+<dt id="genshin.paginator.IDPagintor.flatten"><code class="name flex">
+<span>async def <span class="ident">flatten</span></span>(<span>self, *, lazy: bool = True) ‑> List[+MT]</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="args">Args:</h2>
+<dl>
+<dt><strong><code>lazy</code></strong></dt>
+<dd><p>Limit to only one request at a time</p></dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">async def flatten(self, *, lazy: bool = True) -&gt; List[MT]:
+    &#34;&#34;&#34;Flatten the entire iterator into a list
+
+    :param lazy: Limit to only one request at a time
+    &#34;&#34;&#34;
+    return [item async for item in self]</code></pre>
+</details>
+</dd>
+<dt id="genshin.paginator.IDPagintor.next_page"><code class="name flex">
+<span>async def <span class="ident">next_page</span></span>(<span>self) ‑> List[+MT]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get the next page of the paginator</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">async def next_page(self) -&gt; List[MT]:
+    &#34;&#34;&#34;Get the next page of the paginator&#34;&#34;&#34;
+    if self.end_id is None:
+        raise Exception(&#34;No more pages&#34;)
+
+    data = await self._get_page(self.end_id)
+
+    self._update_cache(data)
+
+    # mark paginator as exhausted
+    if len(data) &lt; self.page_size:
+        self.end_id = None
+        return data
+
+    self.end_id = data[-1].id
+    return data</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="genshin.paginator.MergedPaginator"><code class="flex name class">
+<span>class <span class="ident">MergedPaginator</span></span>
+<span>(</span><span>client: GenshinClient, **kwargs: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="args">Args:</h2>
+<dl>
+<dt><strong><code>client</code></strong></dt>
+<dd><p>A client for making http requests</p></dd>
+<dt><strong><code>lang</code></strong></dt>
+<dd><p>The language to use</p></dd>
+<dt><strong><code>authkey</code></strong></dt>
+<dd><p>The authkey to use when requesting data</p></dd>
+<dt><strong><code>limit</code></strong></dt>
+<dd><p>The maximum amount of rewards to get</p></dd>
+<dt><strong><code>end_id</code></strong></dt>
+<dd><p>The ending id to start getting data from</p></dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class MergedPaginator(AuthkeyPaginator[MT]):
+    &#34;&#34;&#34;A paginator merging a collection of other paginators&#34;&#34;&#34;
+
+    _paginators: List[IDPagintor[MT]]
+
+    def __init__(self, client: GenshinClient, **kwargs: Any) -&gt; None:
+        super().__init__(client, **kwargs)
+
+    def next_page(self) -&gt; NoReturn:
+        raise RuntimeError(&#39;Merged paginators cannot be gotten by &#34;pages&#34;&#39;)
+
+    def _key(self, item: _Model) -&gt; float:
+        return item.time.timestamp()
+
+    def _iter(self) -&gt; AsyncIterator[MT]:
+        return amerge(self._paginators, key=self._key)
+
+    async def flatten(self, *, lazy: bool = False) -&gt; List[MT]:
+        if self.limit is not None and lazy:
+            it = aislice(amerge(self._paginators, key=self._key), self.limit)
+            return [x async for x in it]
+
+        coros = (p.flatten() for p in self._paginators)
+        lists = await asyncio.gather(*coros)
+        return list(heapq.merge(*lists, key=self._key))[: self.limit]</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="genshin.paginator.AuthkeyPaginator" href="#genshin.paginator.AuthkeyPaginator">AuthkeyPaginator</a></li>
+<li><a title="genshin.paginator.IDPagintor" href="#genshin.paginator.IDPagintor">IDPagintor</a></li>
+<li><a title="genshin.paginator.BasePaginator" href="#genshin.paginator.BasePaginator">BasePaginator</a></li>
+<li>abc.ABC</li>
+<li>typing.Generic</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="genshin.paginator.MergedTransactions" href="#genshin.paginator.MergedTransactions">MergedTransactions</a></li>
+<li><a title="genshin.paginator.MergedWishHistory" href="#genshin.paginator.MergedWishHistory">MergedWishHistory</a></li>
+</ul>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="genshin.paginator.AuthkeyPaginator" href="#genshin.paginator.AuthkeyPaginator">AuthkeyPaginator</a></b></code>:
+<ul class="hlist">
+<li><code><a title="genshin.paginator.AuthkeyPaginator.authkey" href="#genshin.paginator.AuthkeyPaginator.authkey">authkey</a></code></li>
+<li><code><a title="genshin.paginator.AuthkeyPaginator.exhausted" href="#genshin.paginator.IDPagintor.exhausted">exhausted</a></code></li>
+<li><code><a title="genshin.paginator.AuthkeyPaginator.first" href="#genshin.paginator.IDPagintor.first">first</a></code></li>
+<li><code><a title="genshin.paginator.AuthkeyPaginator.flatten" href="#genshin.paginator.IDPagintor.flatten">flatten</a></code></li>
+<li><code><a title="genshin.paginator.AuthkeyPaginator.lang" href="#genshin.paginator.AuthkeyPaginator.lang">lang</a></code></li>
+<li><code><a title="genshin.paginator.AuthkeyPaginator.next_page" href="#genshin.paginator.IDPagintor.next_page">next_page</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="genshin.paginator.MergedTransactions"><code class="flex name class">
+<span>class <span class="ident">MergedTransactions</span></span>
+<span>(</span><span>client: GenshinClient, kinds: List[TransactionKind] = None, **kwargs: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="args">Args:</h2>
+<dl>
+<dt><strong><code>client</code></strong></dt>
+<dd><p>A client for making http requests</p></dd>
+<dt><strong><code>kinds</code></strong></dt>
+<dd><p>The kinds of transactions to get</p></dd>
+<dt><strong><code>lang</code></strong></dt>
+<dd><p>The language to use</p></dd>
+<dt><strong><code>authkey</code></strong></dt>
+<dd><p>The authkey to use when requesting data</p></dd>
+<dt><strong><code>limit</code></strong></dt>
+<dd><p>The maximum amount of rewards to get</p></dd>
+<dt><strong><code>end_id</code></strong></dt>
+<dd><p>The ending id to start getting data from</p></dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class MergedTransactions(MergedPaginator[BaseTransaction]):
+    &#34;&#34;&#34;A paginator for transactions from multiple banners&#34;&#34;&#34;
+
+    __repr_args__ = [&#34;kinds&#34;, &#34;limit&#34;, &#34;lang&#34;]
+
+    client: GenshinClient
+    kinds: List[TransactionKind]
+
+    def __init__(
+        self,
+        client: GenshinClient,
+        kinds: List[TransactionKind] = None,
+        **kwargs: Any,
+    ) -&gt; None:
+        &#34;&#34;&#34;Create a new transaction paginator
+
+        :param client: A client for making http requests
+        :param kinds: The kinds of transactions to get
+        :param lang: The language to use
+        :param authkey: The authkey to use when requesting data
+        :param limit: The maximum amount of rewards to get
+        :param end_id: The ending id to start getting data from
+        &#34;&#34;&#34;
+        super().__init__(client, **kwargs)
+        self.kinds = kinds or [&#34;primogem&#34;, &#34;crystal&#34;, &#34;resin&#34;, &#34;artifact&#34;, &#34;weapon&#34;]
+
+        self._paginators = [Transactions(client, kind, **kwargs) for kind in self.kinds]</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="genshin.paginator.MergedPaginator" href="#genshin.paginator.MergedPaginator">MergedPaginator</a></li>
+<li><a title="genshin.paginator.AuthkeyPaginator" href="#genshin.paginator.AuthkeyPaginator">AuthkeyPaginator</a></li>
+<li><a title="genshin.paginator.IDPagintor" href="#genshin.paginator.IDPagintor">IDPagintor</a></li>
+<li><a title="genshin.paginator.BasePaginator" href="#genshin.paginator.BasePaginator">BasePaginator</a></li>
+<li>abc.ABC</li>
+<li>typing.Generic</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="genshin.paginator.MergedTransactions.client"><code class="name">var <span class="ident">client</span> : GenshinClient</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.paginator.MergedTransactions.kinds"><code class="name">var <span class="ident">kinds</span> : List[TransactionKind]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="genshin.paginator.MergedPaginator" href="#genshin.paginator.MergedPaginator">MergedPaginator</a></b></code>:
+<ul class="hlist">
+<li><code><a title="genshin.paginator.MergedPaginator.authkey" href="#genshin.paginator.AuthkeyPaginator.authkey">authkey</a></code></li>
+<li><code><a title="genshin.paginator.MergedPaginator.exhausted" href="#genshin.paginator.IDPagintor.exhausted">exhausted</a></code></li>
+<li><code><a title="genshin.paginator.MergedPaginator.first" href="#genshin.paginator.IDPagintor.first">first</a></code></li>
+<li><code><a title="genshin.paginator.MergedPaginator.flatten" href="#genshin.paginator.IDPagintor.flatten">flatten</a></code></li>
+<li><code><a title="genshin.paginator.MergedPaginator.lang" href="#genshin.paginator.AuthkeyPaginator.lang">lang</a></code></li>
+<li><code><a title="genshin.paginator.MergedPaginator.next_page" href="#genshin.paginator.IDPagintor.next_page">next_page</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="genshin.paginator.MergedWishHistory"><code class="flex name class">
+<span>class <span class="ident">MergedWishHistory</span></span>
+<span>(</span><span>client: GenshinClient, banner_types: List[BannerType] = None, **kwargs: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="args">Args:</h2>
+<dl>
+<dt><strong><code>client</code></strong></dt>
+<dd><p>A client for making http requests</p></dd>
+<dt><strong><code>banner_types</code></strong></dt>
+<dd><p>The banners from which to get the wishes</p></dd>
+<dt><strong><code>lang</code></strong></dt>
+<dd><p>The language to use</p></dd>
+<dt><strong><code>authkey</code></strong></dt>
+<dd><p>The authkey to use when requesting data</p></dd>
+<dt><strong><code>limit</code></strong></dt>
+<dd><p>The maximum amount of rewards to get</p></dd>
+<dt><strong><code>end_id</code></strong></dt>
+<dd><p>The ending id to start getting data from</p></dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class MergedWishHistory(MergedPaginator[Wish]):
+    &#34;&#34;&#34;A paginator for wish histories from multiple banners&#34;&#34;&#34;
+
+    __repr_args__ = [&#34;banner_types&#34;, &#34;limit&#34;, &#34;lang&#34;]
+
+    client: GenshinClient
+    banner_types: List[BannerType]
+
+    def __init__(
+        self,
+        client: GenshinClient,
+        banner_types: List[BannerType] = None,
+        **kwargs: Any,
+    ) -&gt; None:
+        &#34;&#34;&#34;Create a new merged wish history paginator
+
+        :param client: A client for making http requests
+        :param banner_types: The banners from which to get the wishes
+        :param lang: The language to use
+        :param authkey: The authkey to use when requesting data
+        :param limit: The maximum amount of rewards to get
+        :param end_id: The ending id to start getting data from
+        &#34;&#34;&#34;
+        super().__init__(client, **kwargs)
+        self.banner_types = banner_types or [100, 200, 301, 302]
+
+        self._paginators = [WishHistory(client, b, **kwargs) for b in self.banner_types]
+
+    async def flatten(self, *, lazy: bool = False) -&gt; List[Wish]:
+        # before we gather all histories we should get the banner name
+        asyncio.create_task(self.client.get_banner_names(lang=self._lang, authkey=self._authkey))
+        return await super().flatten(lazy=lazy)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="genshin.paginator.MergedPaginator" href="#genshin.paginator.MergedPaginator">MergedPaginator</a></li>
+<li><a title="genshin.paginator.AuthkeyPaginator" href="#genshin.paginator.AuthkeyPaginator">AuthkeyPaginator</a></li>
+<li><a title="genshin.paginator.IDPagintor" href="#genshin.paginator.IDPagintor">IDPagintor</a></li>
+<li><a title="genshin.paginator.BasePaginator" href="#genshin.paginator.BasePaginator">BasePaginator</a></li>
+<li>abc.ABC</li>
+<li>typing.Generic</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="genshin.paginator.MergedWishHistory.banner_types"><code class="name">var <span class="ident">banner_types</span> : List[BannerType]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.paginator.MergedWishHistory.client"><code class="name">var <span class="ident">client</span> : GenshinClient</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="genshin.paginator.MergedPaginator" href="#genshin.paginator.MergedPaginator">MergedPaginator</a></b></code>:
+<ul class="hlist">
+<li><code><a title="genshin.paginator.MergedPaginator.authkey" href="#genshin.paginator.AuthkeyPaginator.authkey">authkey</a></code></li>
+<li><code><a title="genshin.paginator.MergedPaginator.exhausted" href="#genshin.paginator.IDPagintor.exhausted">exhausted</a></code></li>
+<li><code><a title="genshin.paginator.MergedPaginator.first" href="#genshin.paginator.IDPagintor.first">first</a></code></li>
+<li><code><a title="genshin.paginator.MergedPaginator.flatten" href="#genshin.paginator.IDPagintor.flatten">flatten</a></code></li>
+<li><code><a title="genshin.paginator.MergedPaginator.lang" href="#genshin.paginator.AuthkeyPaginator.lang">lang</a></code></li>
+<li><code><a title="genshin.paginator.MergedPaginator.next_page" href="#genshin.paginator.IDPagintor.next_page">next_page</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="genshin.paginator.Transactions"><code class="flex name class">
+<span>class <span class="ident">Transactions</span></span>
+<span>(</span><span>client: GenshinClient, kind: TransactionKind, **kwargs: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="args">Args:</h2>
+<dl>
+<dt><strong><code>client</code></strong></dt>
+<dd><p>A client for making http requests</p></dd>
+<dt><strong><code>kind</code></strong></dt>
+<dd><p>The kind of transactions to get</p></dd>
+<dt><strong><code>lang</code></strong></dt>
+<dd><p>The language to use</p></dd>
+<dt><strong><code>authkey</code></strong></dt>
+<dd><p>The authkey to use when requesting data</p></dd>
+<dt><strong><code>limit</code></strong></dt>
+<dd><p>The maximum amount of rewards to get</p></dd>
+<dt><strong><code>end_id</code></strong></dt>
+<dd><p>The ending id to start getting data from</p></dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Transactions(AuthkeyPaginator[TransactionT]):
+    &#34;&#34;&#34;A paginator for transactions&#34;&#34;&#34;
+
+    __repr_args__ = [&#34;kind&#34;, &#34;limit&#34;, &#34;lang&#34;]
+
+    client: GenshinClient
+    kind: TransactionKind
+
+    def __init__(self, client: GenshinClient, kind: TransactionKind, **kwargs: Any) -&gt; None:
+        &#34;&#34;&#34;Create a new transaction paginator
+
+        :param client: A client for making http requests
+        :param kind: The kind of transactions to get
+        :param lang: The language to use
+        :param authkey: The authkey to use when requesting data
+        :param limit: The maximum amount of rewards to get
+        :param end_id: The ending id to start getting data from
+        &#34;&#34;&#34;
+        super().__init__(client, **kwargs)
+        if kind not in [&#34;primogem&#34;, &#34;crystal&#34;, &#34;resin&#34;, &#34;artifact&#34;, &#34;weapon&#34;]:
+            raise ValueError(f&#34;Invalid transaction kind: {kind}&#34;)
+        self.kind = kind
+
+    def _cache_key(self, end_id: int) -&gt; Tuple[int, str]:
+        return (end_id, self.lang)
+
+    async def _get_page(self, end_id: int):
+        endpoint = &#34;get&#34; + self.kind.capitalize() + &#34;Log&#34;
+
+        data, reasons = await asyncio.gather(
+            self.client.request_transaction(
+                endpoint,
+                lang=self._lang,
+                authkey=self._authkey,
+                params=dict(end_id=end_id, size=20),
+            ),
+            self.client._get_transaction_reasons(self.lang),
+        )
+
+        transactions = []
+        for trans in data[&#34;list&#34;]:
+            cls = ItemTransaction if &#34;name&#34; in trans else Transaction
+            reason_id = trans[&#34;reason&#34;]
+            trans = {**trans, &#34;reason_id&#34;: reason_id, &#34;reason&#34;: reasons.get(reason_id, &#34;&#34;)}
+            transactions.append(cls(**trans, kind=self.kind))
+
+        return transactions</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="genshin.paginator.AuthkeyPaginator" href="#genshin.paginator.AuthkeyPaginator">AuthkeyPaginator</a></li>
+<li><a title="genshin.paginator.IDPagintor" href="#genshin.paginator.IDPagintor">IDPagintor</a></li>
+<li><a title="genshin.paginator.BasePaginator" href="#genshin.paginator.BasePaginator">BasePaginator</a></li>
+<li>abc.ABC</li>
+<li>typing.Generic</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="genshin.paginator.Transactions.client"><code class="name">var <span class="ident">client</span> : GenshinClient</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.paginator.Transactions.kind"><code class="name">var <span class="ident">kind</span> : TransactionKind</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="genshin.paginator.AuthkeyPaginator" href="#genshin.paginator.AuthkeyPaginator">AuthkeyPaginator</a></b></code>:
+<ul class="hlist">
+<li><code><a title="genshin.paginator.AuthkeyPaginator.authkey" href="#genshin.paginator.AuthkeyPaginator.authkey">authkey</a></code></li>
+<li><code><a title="genshin.paginator.AuthkeyPaginator.exhausted" href="#genshin.paginator.IDPagintor.exhausted">exhausted</a></code></li>
+<li><code><a title="genshin.paginator.AuthkeyPaginator.first" href="#genshin.paginator.IDPagintor.first">first</a></code></li>
+<li><code><a title="genshin.paginator.AuthkeyPaginator.flatten" href="#genshin.paginator.IDPagintor.flatten">flatten</a></code></li>
+<li><code><a title="genshin.paginator.AuthkeyPaginator.lang" href="#genshin.paginator.AuthkeyPaginator.lang">lang</a></code></li>
+<li><code><a title="genshin.paginator.AuthkeyPaginator.next_page" href="#genshin.paginator.IDPagintor.next_page">next_page</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="genshin.paginator.WishHistory"><code class="flex name class">
+<span>class <span class="ident">WishHistory</span></span>
+<span>(</span><span>client: GenshinClient, banner_type: BannerType, **kwargs: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="args">Args:</h2>
+<dl>
+<dt><strong><code>client</code></strong></dt>
+<dd><p>A client for making http requests</p></dd>
+<dt><strong><code>banner_type</code></strong></dt>
+<dd><p>The banner from which to get the wishes</p></dd>
+<dt><strong><code>lang</code></strong></dt>
+<dd><p>The language to use</p></dd>
+<dt><strong><code>authkey</code></strong></dt>
+<dd><p>The authkey to use when requesting data</p></dd>
+<dt><strong><code>limit</code></strong></dt>
+<dd><p>The maximum amount of rewards to get</p></dd>
+<dt><strong><code>end_id</code></strong></dt>
+<dd><p>The ending id to start getting data from</p></dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class WishHistory(AuthkeyPaginator[Wish]):
+    &#34;&#34;&#34;A paginator for wishes&#34;&#34;&#34;
+
+    __repr_args__ = [&#34;banner_type&#34;, &#34;limit&#34;, &#34;lang&#34;]
+
+    client: GenshinClient
+    banner_type: BannerType
+
+    def __init__(self, client: GenshinClient, banner_type: BannerType, **kwargs: Any) -&gt; None:
+        &#34;&#34;&#34;Create a new wish history paginator
+
+        :param client: A client for making http requests
+        :param banner_type: The banner from which to get the wishes
+        :param lang: The language to use
+        :param authkey: The authkey to use when requesting data
+        :param limit: The maximum amount of rewards to get
+        :param end_id: The ending id to start getting data from
+        &#34;&#34;&#34;
+        super().__init__(client, **kwargs)
+        if banner_type not in [100, 200, 301, 302]:
+            raise ValueError(f&#34;Invalid banner type: {banner_type!r}&#34;)
+        self.banner_type = banner_type
+
+    def _cache_key(self, end_id: int) -&gt; Tuple[int, str]:
+        return (end_id, self.lang)
+
+    async def _get_banner_name(self) -&gt; str:
+        &#34;&#34;&#34;Get the banner name of banner_type&#34;&#34;&#34;
+        banner_types = await self.client.get_banner_names(lang=self._lang, authkey=self._authkey)
+        return banner_types[self.banner_type]
+
+    async def _get_page(self, end_id: int) -&gt; List[Wish]:
+        data = await self.client.request_gacha_info(
+            &#34;getGachaLog&#34;,
+            lang=self._lang,
+            authkey=self._authkey,
+            params=dict(gacha_type=self.banner_type, size=self.page_size, end_id=end_id),
+        )
+        banner_name = await self._get_banner_name()
+        return [Wish(**i, banner_name=banner_name) for i in data[&#34;list&#34;]]</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="genshin.paginator.AuthkeyPaginator" href="#genshin.paginator.AuthkeyPaginator">AuthkeyPaginator</a></li>
+<li><a title="genshin.paginator.IDPagintor" href="#genshin.paginator.IDPagintor">IDPagintor</a></li>
+<li><a title="genshin.paginator.BasePaginator" href="#genshin.paginator.BasePaginator">BasePaginator</a></li>
+<li>abc.ABC</li>
+<li>typing.Generic</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="genshin.paginator.WishHistory.banner_type"><code class="name">var <span class="ident">banner_type</span> : BannerType</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="genshin.paginator.WishHistory.client"><code class="name">var <span class="ident">client</span> : GenshinClient</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="genshin.paginator.AuthkeyPaginator" href="#genshin.paginator.AuthkeyPaginator">AuthkeyPaginator</a></b></code>:
+<ul class="hlist">
+<li><code><a title="genshin.paginator.AuthkeyPaginator.authkey" href="#genshin.paginator.AuthkeyPaginator.authkey">authkey</a></code></li>
+<li><code><a title="genshin.paginator.AuthkeyPaginator.exhausted" href="#genshin.paginator.IDPagintor.exhausted">exhausted</a></code></li>
+<li><code><a title="genshin.paginator.AuthkeyPaginator.first" href="#genshin.paginator.IDPagintor.first">first</a></code></li>
+<li><code><a title="genshin.paginator.AuthkeyPaginator.flatten" href="#genshin.paginator.IDPagintor.flatten">flatten</a></code></li>
+<li><code><a title="genshin.paginator.AuthkeyPaginator.lang" href="#genshin.paginator.AuthkeyPaginator.lang">lang</a></code></li>
+<li><code><a title="genshin.paginator.AuthkeyPaginator.next_page" href="#genshin.paginator.IDPagintor.next_page">next_page</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="genshin" href="index.html">genshin</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="genshin.paginator.AuthkeyPaginator" href="#genshin.paginator.AuthkeyPaginator">AuthkeyPaginator</a></code></h4>
+<ul class="">
+<li><code><a title="genshin.paginator.AuthkeyPaginator.authkey" href="#genshin.paginator.AuthkeyPaginator.authkey">authkey</a></code></li>
+<li><code><a title="genshin.paginator.AuthkeyPaginator.lang" href="#genshin.paginator.AuthkeyPaginator.lang">lang</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="genshin.paginator.BasePaginator" href="#genshin.paginator.BasePaginator">BasePaginator</a></code></h4>
+<ul class="">
+<li><code><a title="genshin.paginator.BasePaginator.exhausted" href="#genshin.paginator.BasePaginator.exhausted">exhausted</a></code></li>
+<li><code><a title="genshin.paginator.BasePaginator.flatten" href="#genshin.paginator.BasePaginator.flatten">flatten</a></code></li>
+<li><code><a title="genshin.paginator.BasePaginator.next_page" href="#genshin.paginator.BasePaginator.next_page">next_page</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="genshin.paginator.ChineseDailyRewardPaginator" href="#genshin.paginator.ChineseDailyRewardPaginator">ChineseDailyRewardPaginator</a></code></h4>
+<ul class="">
+<li><code><a title="genshin.paginator.ChineseDailyRewardPaginator.client" href="#genshin.paginator.ChineseDailyRewardPaginator.client">client</a></code></li>
+<li><code><a title="genshin.paginator.ChineseDailyRewardPaginator.current_page" href="#genshin.paginator.ChineseDailyRewardPaginator.current_page">current_page</a></code></li>
+<li><code><a title="genshin.paginator.ChineseDailyRewardPaginator.limit" href="#genshin.paginator.ChineseDailyRewardPaginator.limit">limit</a></code></li>
+<li><code><a title="genshin.paginator.ChineseDailyRewardPaginator.page_size" href="#genshin.paginator.ChineseDailyRewardPaginator.page_size">page_size</a></code></li>
+<li><code><a title="genshin.paginator.ChineseDailyRewardPaginator.uid" href="#genshin.paginator.ChineseDailyRewardPaginator.uid">uid</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="genshin.paginator.DailyRewardPaginator" href="#genshin.paginator.DailyRewardPaginator">DailyRewardPaginator</a></code></h4>
+<ul class="two-column">
+<li><code><a title="genshin.paginator.DailyRewardPaginator.client" href="#genshin.paginator.DailyRewardPaginator.client">client</a></code></li>
+<li><code><a title="genshin.paginator.DailyRewardPaginator.current_page" href="#genshin.paginator.DailyRewardPaginator.current_page">current_page</a></code></li>
+<li><code><a title="genshin.paginator.DailyRewardPaginator.exhausted" href="#genshin.paginator.DailyRewardPaginator.exhausted">exhausted</a></code></li>
+<li><code><a title="genshin.paginator.DailyRewardPaginator.lang" href="#genshin.paginator.DailyRewardPaginator.lang">lang</a></code></li>
+<li><code><a title="genshin.paginator.DailyRewardPaginator.limit" href="#genshin.paginator.DailyRewardPaginator.limit">limit</a></code></li>
+<li><code><a title="genshin.paginator.DailyRewardPaginator.next_page" href="#genshin.paginator.DailyRewardPaginator.next_page">next_page</a></code></li>
+<li><code><a title="genshin.paginator.DailyRewardPaginator.page_size" href="#genshin.paginator.DailyRewardPaginator.page_size">page_size</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="genshin.paginator.DiaryPaginator" href="#genshin.paginator.DiaryPaginator">DiaryPaginator</a></code></h4>
+<ul class="two-column">
+<li><code><a title="genshin.paginator.DiaryPaginator.client" href="#genshin.paginator.DiaryPaginator.client">client</a></code></li>
+<li><code><a title="genshin.paginator.DiaryPaginator.data" href="#genshin.paginator.DiaryPaginator.data">data</a></code></li>
+<li><code><a title="genshin.paginator.DiaryPaginator.exhausted" href="#genshin.paginator.DiaryPaginator.exhausted">exhausted</a></code></li>
+<li><code><a title="genshin.paginator.DiaryPaginator.lang" href="#genshin.paginator.DiaryPaginator.lang">lang</a></code></li>
+<li><code><a title="genshin.paginator.DiaryPaginator.limit" href="#genshin.paginator.DiaryPaginator.limit">limit</a></code></li>
+<li><code><a title="genshin.paginator.DiaryPaginator.month" href="#genshin.paginator.DiaryPaginator.month">month</a></code></li>
+<li><code><a title="genshin.paginator.DiaryPaginator.next_page" href="#genshin.paginator.DiaryPaginator.next_page">next_page</a></code></li>
+<li><code><a title="genshin.paginator.DiaryPaginator.page_size" href="#genshin.paginator.DiaryPaginator.page_size">page_size</a></code></li>
+<li><code><a title="genshin.paginator.DiaryPaginator.type" href="#genshin.paginator.DiaryPaginator.type">type</a></code></li>
+<li><code><a title="genshin.paginator.DiaryPaginator.uid" href="#genshin.paginator.DiaryPaginator.uid">uid</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="genshin.paginator.IDPagintor" href="#genshin.paginator.IDPagintor">IDPagintor</a></code></h4>
+<ul class="two-column">
+<li><code><a title="genshin.paginator.IDPagintor.client" href="#genshin.paginator.IDPagintor.client">client</a></code></li>
+<li><code><a title="genshin.paginator.IDPagintor.end_id" href="#genshin.paginator.IDPagintor.end_id">end_id</a></code></li>
+<li><code><a title="genshin.paginator.IDPagintor.exhausted" href="#genshin.paginator.IDPagintor.exhausted">exhausted</a></code></li>
+<li><code><a title="genshin.paginator.IDPagintor.first" href="#genshin.paginator.IDPagintor.first">first</a></code></li>
+<li><code><a title="genshin.paginator.IDPagintor.flatten" href="#genshin.paginator.IDPagintor.flatten">flatten</a></code></li>
+<li><code><a title="genshin.paginator.IDPagintor.limit" href="#genshin.paginator.IDPagintor.limit">limit</a></code></li>
+<li><code><a title="genshin.paginator.IDPagintor.next_page" href="#genshin.paginator.IDPagintor.next_page">next_page</a></code></li>
+<li><code><a title="genshin.paginator.IDPagintor.page_size" href="#genshin.paginator.IDPagintor.page_size">page_size</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="genshin.paginator.MergedPaginator" href="#genshin.paginator.MergedPaginator">MergedPaginator</a></code></h4>
+</li>
+<li>
+<h4><code><a title="genshin.paginator.MergedTransactions" href="#genshin.paginator.MergedTransactions">MergedTransactions</a></code></h4>
+<ul class="">
+<li><code><a title="genshin.paginator.MergedTransactions.client" href="#genshin.paginator.MergedTransactions.client">client</a></code></li>
+<li><code><a title="genshin.paginator.MergedTransactions.kinds" href="#genshin.paginator.MergedTransactions.kinds">kinds</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="genshin.paginator.MergedWishHistory" href="#genshin.paginator.MergedWishHistory">MergedWishHistory</a></code></h4>
+<ul class="">
+<li><code><a title="genshin.paginator.MergedWishHistory.banner_types" href="#genshin.paginator.MergedWishHistory.banner_types">banner_types</a></code></li>
+<li><code><a title="genshin.paginator.MergedWishHistory.client" href="#genshin.paginator.MergedWishHistory.client">client</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="genshin.paginator.Transactions" href="#genshin.paginator.Transactions">Transactions</a></code></h4>
+<ul class="">
+<li><code><a title="genshin.paginator.Transactions.client" href="#genshin.paginator.Transactions.client">client</a></code></li>
+<li><code><a title="genshin.paginator.Transactions.kind" href="#genshin.paginator.Transactions.kind">kind</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="genshin.paginator.WishHistory" href="#genshin.paginator.WishHistory">WishHistory</a></code></h4>
+<ul class="">
+<li><code><a title="genshin.paginator.WishHistory.banner_type" href="#genshin.paginator.WishHistory.banner_type">banner_type</a></code></li>
+<li><code><a title="genshin.paginator.WishHistory.client" href="#genshin.paginator.WishHistory.client">client</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2.dev21+g6d35cca</a>.</p>
+</footer>
+</body>
+</html>
